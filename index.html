@@ -31,17 +31,16 @@
                                     role="tab" aria-controls="pills-home" aria-selected="true">City Corporation pdf</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#bangla" role="tab"
-                                    aria-controls="pills-profile" aria-selected="false">সিটি কর্পোরেশন পিডিএফ</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#upozilaenglish"
                                     role="tab" aria-controls="pills-home" aria-selected="true">Upozila pdf</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#bangla" role="tab"
+                                    aria-controls="pills-profile" aria-selected="false">সিটি কর্পোরেশন পিডিএফ</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#upozilabangla"
-                                    role="tab" aria-controls="pills-profile" aria-selected="false">উপজেলা বাংলা
-                                    পিডিএফ</a>
+                                    role="tab" aria-controls="pills-profile" aria-selected="false">উপজেলা পিডিএফ</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
@@ -165,7 +164,7 @@
                                         </div>
 
                                         <div class="col-md-12 text-center mt-2">
-                                            <button type="submit" onclick="store()"
+                                            <button type="submit" onclick="storeenglish()"
                                                 class="btn btn-success">Save</button>
                                         </div>
                                     </div>
@@ -582,31 +581,29 @@
 
 
 
-        function store() {
+        function storeenglish() {
 
             const zoneaddress = document.getElementById("zoneaddress").value;
             const citycorporation = document.getElementById("citycorporation").value;
             const district = document.getElementById("district").value;
-
-
             const registerno = document.getElementById("registerno").value;
+
             const dateofissue = document.getElementById("dateofissue").value;
             const dateofregistration = document.getElementById("dateofregistration").value;
-
             const name = document.getElementById("name").value;
             const brnumber = document.getElementById("brnumber").value;
+
             const dateofbirthdate = document.getElementById("dateofbirthdate").value;
             const dateofbirthmonth = document.getElementById("dateofbirthmonth").value;
             const dateofbirthyear = document.getElementById("dateofbirthyear").value;
-
             const dateofbirthword = document.getElementById("dateofbirthword").value;
+
             const orderchild = document.getElementById("orderchild").value;
             const gender = document.getElementById("gender").value;
-
             const fathername = document.getElementById("fathername").value;
             const fathernid = document.getElementById("fathernid").value;
-            const fatherbrn = document.getElementById("fatherbrn").value;
 
+            const fatherbrn = document.getElementById("fatherbrn").value;
             const mothername = document.getElementById("mothername").value;
             const mothernid = document.getElementById("mothernid").value;
             const motherbrn = document.getElementById("motherbrn").value;
@@ -614,101 +611,108 @@
             const birthplace = document.getElementById("birthplace").value;
             const permanentaddress = document.getElementById("permanentaddress").value;
 
-            const car = {
+            const cityenglish = {
                 zoneaddress: zoneaddress,
                 citycorporation: citycorporation,
-                district:district,
+                district: district,
                 registerno: registerno,
+
                 dateofissue: dateofissue,
-                dateofregistration:dateofregistration,
+                dateofregistration: dateofregistration,
                 name: name,
                 brnumber: brnumber,
-                dateofbirthword:dateofbirthword,
+
+                dateofbirthword: dateofbirthword,
                 dateofbirthdate: dateofbirthdate,
                 dateofbirthmonth: dateofbirthmonth,
-                dateofbirthyear:dateofbirthyear,
+                dateofbirthyear: dateofbirthyear,
+
                 orderchild: orderchild,
                 gender: gender,
-                fathername:fathername,
+                fathername: fathername,
                 fathernid: fathernid,
+
                 fatherbrn: fatherbrn,
-                mothername:mothername,
-                mothernid:mothernid,
+                mothername: mothername,
+                mothernid: mothernid,
                 motherbrn: motherbrn,
+
                 birthplace: birthplace,
-                permanentaddress:permanentaddress,
-    }
+                permanentaddress: permanentaddress,
+            }
 
-    window.localStorage.setItem("citycorporationenglish",JSON.stringify(car)); 
+            window.localStorage.setItem("citycorporationenglish", JSON.stringify(cityenglish));
 
-    
+
             window.location = "english.html"
         }
+        
         function storebangla() {
 
-            const bnzoneaddress = document.getElementById("bnzoneaddress");
-            const bncitycorporation = document.getElementById("bncitycorporation");
-            const bndistrict = document.getElementById("bndistrict");
+            const bnzoneaddress = document.getElementById("bnzoneaddress").value;
+            const bncitycorporation = document.getElementById("bncitycorporation").value;
+            const bndistrict = document.getElementById("bndistrict").value;
+            const bnregisterno = document.getElementById("bnregisterno").value;
 
+            const bndateofissue = document.getElementById("bndateofissue").value;
+            const bndateofregistration = document.getElementById("bndateofregistration").value;
+            const bnname = document.getElementById("bnname").value;
+            const bnbrnumber = document.getElementById("bnbrnumber").value;
 
-            const bnregisterno = document.getElementById("bnregisterno");
-            const bndateofissue = document.getElementById("bndateofissue");
-            const bndateofregistration = document.getElementById("bndateofregistration");
+            const bndateofbirthdate = document.getElementById("bndateofbirthdate").value;
+            const bndateofbirthmonth = document.getElementById("bndateofbirthmonth").value;
+            const bndateofbirthyear = document.getElementById("bndateofbirthyear").value;
+            const bndateofbirthword = document.getElementById("bndateofbirthword").value;
 
-            const bnname = document.getElementById("bnname");
-            const bnbrnumber = document.getElementById("bnbrnumber");
-            const bndateofbirthdate = document.getElementById("bndateofbirthdate");
-            const bndateofbirthmonth = document.getElementById("bndateofbirthmonth");
-            const bndateofbirthyear = document.getElementById("bndateofbirthyear");
+            const bnorderchild = document.getElementById("bnorderchild").value;
+            const bngender = document.getElementById("bngender").value;
+            const bnfathername = document.getElementById("bnfathername").value;
+            const bnfathernid = document.getElementById("bnfathernid").value;
 
-            const bndateofbirthword = document.getElementById("bndateofbirthword");
-            const bnorderchild = document.getElementById("bnorderchild");
-            const bngender = document.getElementById("bngender");
+            const bnfatherbrn = document.getElementById("bnfatherbrn").value;
+            const bnmothername = document.getElementById("bnmothername").value;
+            const bnmothernid = document.getElementById("bnmothernid").value;
+            const bnmotherbrn = document.getElementById("bnmotherbrn").value;
 
-            const bnfathername = document.getElementById("bnfathername");
-            const bnfathernid = document.getElementById("bnfathernid");
-            const bnfatherbrn = document.getElementById("bnfatherbrn");
+            const bnbirthplace = document.getElementById("bnbirthplace").value;
+            const bnpermanentaddress = document.getElementById("bnpermanentaddress").value;
 
-            const bnmothername = document.getElementById("bnmothername");
-            const bnmothernid = document.getElementById("bnmothernid");
-            const bnmotherbrn = document.getElementById("bnmotherbrn");
+            const citybangla = {
+                bnzoneaddress: bnzoneaddress,
+                bncitycorporation: bncitycorporation,
+                bndistrict: bndistrict,
+                bnregisterno: bnregisterno,
 
-            const bnbirthplace = document.getElementById("bnbirthplace");
-            const bnpermanentaddress = document.getElementById("bnpermanentaddress");
+                bndateofissue: bndateofissue,
+                bndateofregistration: bndateofregistration,
+                bnname: bnname,
+                bnbrnumber: bnbrnumber,
 
-            localStorage.setItem("bnzoneaddress", bnzoneaddress.value)
-            localStorage.setItem("bncitycorporation", bncitycorporation.value)
-            localStorage.setItem("bndistrict", bndistrict.value)
+                bndateofbirthword: bndateofbirthword,
+                bndateofbirthdate: bndateofbirthdate,
+                bndateofbirthmonth: bndateofbirthmonth,
+                bndateofbirthyear: bndateofbirthyear,
 
+                bnorderchild: bnorderchild,
+                bngender: bngender,
+                bnfathername: bnfathername,
+                bnfathernid: bnfathernid,
 
-            localStorage.setItem("bnregisterno", bnregisterno.value)
-            localStorage.setItem("bndateofissue", bndateofissue.value)
-            localStorage.setItem("bndateofregistration", bndateofregistration.value)
+                bnfatherbrn: bnfatherbrn,
+                bnmothername: bnmothername,
+                bnmothernid: bnmothernid,
+                bnmotherbrn: bnmotherbrn,
 
-            localStorage.setItem("bnname", bnname.value)
-            localStorage.setItem("bnbrnumber", bnbrnumber.value)
-            localStorage.setItem("bndateofbirthword", bndateofbirthword.value)
+                bnbirthplace: bnbirthplace,
+                bnpermanentaddress: bnpermanentaddress
+            }
 
-            localStorage.setItem("bndateofbirthdate", bndateofbirthdate.value)
-            localStorage.setItem("bndateofbirthmonth", bndateofbirthmonth.value)
-            localStorage.setItem("bndateofbirthyear", bndateofbirthyear.value)
-            localStorage.setItem("bnorderchild", bnorderchild.value)
-            localStorage.setItem("bngender", bngender.value)
-
-            localStorage.setItem("bnfathername", bnfathername.value)
-            localStorage.setItem("bnfathernid", bnfathernid.value)
-            localStorage.setItem("bnfatherbrn", bnfatherbrn.value)
-
-            localStorage.setItem("bnmothername", bnmothername.value)
-            localStorage.setItem("bnmothernid", bnmothernid.value)
-            localStorage.setItem("bnmotherbrn", bnmotherbrn.value)
-
-            localStorage.setItem("bnbirthplace", bnbirthplace.value)
-            localStorage.setItem("bnpermanentaddress", bnpermanentaddress.value)
-
+            window.localStorage.setItem("citycorporationbangla", JSON.stringify(citybangla));
 
             window.location = "bangla.html"
         }
+        
+        
         function storeupozilaenglish() {
 
             const upzoneaddress = document.getElementById("upzoneaddress");
@@ -741,36 +745,39 @@
             const upbirthplace = document.getElementById("upbirthplace");
             const uppermanentaddress = document.getElementById("uppermanentaddress");
 
-            localStorage.setItem("upzoneaddress", upzoneaddress.value)
-            localStorage.setItem("upcitycorporation", upcitycorporation.value)
-            localStorage.setItem("updistrict", updistrict.value)
 
 
-            localStorage.setItem("upregisterno", upregisterno.value)
-            localStorage.setItem("updateofissue", updateofissue.value)
-            localStorage.setItem("updateofregistration", updateofregistration.value)
+            const upozilaenglish = {
+                upzoneaddress: upzoneaddress,
+                upcitycorporation: upcitycorporation,
+                updistrict: updistrict,
+                bnregistupregisternoerno: upregisterno,
 
-            localStorage.setItem("upname", upname.value)
-            localStorage.setItem("upbrnumber", upbrnumber.value)
-            localStorage.setItem("updateofbirthword", updateofbirthword.value)
+                updateofissue: updateofissue,
+                updateofregistration: updateofregistration,
+                upname: upname,
+                upbrnumber: upbrnumber,
 
-            localStorage.setItem("updateofbirthdate", updateofbirthdate.value)
-            localStorage.setItem("updateofbirthmonth", updateofbirthmonth.value)
-            localStorage.setItem("updateofbirthyear", updateofbirthyear.value)
-            localStorage.setItem("uporderchild", uporderchild.value)
-            localStorage.setItem("upgender", upgender.value)
+                updateofbirthword: updateofbirthword,
+                updateofbirthdate: updateofbirthdate,
+                updateofbirthmonth: updateofbirthmonth,
+                updateofbirthyear: updateofbirthyear,
 
-            localStorage.setItem("upfathername", upfathername.value)
-            localStorage.setItem("upfathernid", upfathernid.value)
-            localStorage.setItem("upfatherbrn", upfatherbrn.value)
+                uporderchild: uporderchild,
+                upgender: upgender,
+                upfathername: upfathername,
+                upfathernid: upfathernid,
 
-            localStorage.setItem("upmothername", upmothername.value)
-            localStorage.setItem("upmothernid", upmothernid.value)
-            localStorage.setItem("upmotherbrn", upmotherbrn.value)
+                upfatherbrn: upfatherbrn,
+                upmothername: upmothername,
+                upmothernid: upmothernid,
+                upmotherbrn: upmotherbrn,
 
-            localStorage.setItem("upbirthplace", upbirthplace.value)
-            localStorage.setItem("uppermanentaddress", uppermanentaddress.value)
+                upbirthplace: upbirthplace,
+                uppermanentaddress: uppermanentaddress
+            }
 
+            window.localStorage.setItem("upozilaenglish", JSON.stringify(upozilaenglish));
 
             window.location = "upozilaenglish.html"
         }
@@ -808,36 +815,37 @@
             const upbnbirthplace = document.getElementById("upbnbirthplace");
             const upbnpermanentaddress = document.getElementById("upbnpermanentaddress");
 
-            localStorage.setItem("upbnzoneaddress", upbnzoneaddress.value)
-            localStorage.setItem("upbncitycorporation", upbncitycorporation.value)
-            localStorage.setItem("upbndistrict", upbndistrict.value)
+            const upozilabangla = {
+                upbnzoneaddress: upbnzoneaddress,
+                upbncitycorporation: upbncitycorporation,
+                upbndistrict: upbndistrict,
+                upbnregisterno: upbnregisterno,
 
+                upbndateofissue: upbndateofissue,
+                upbndateofregistration: upbndateofregistration,
+                upbnname: upbnname,
+                upbnbrnumber: upbnbrnumber,
 
-            localStorage.setItem("upbnregisterno", upbnregisterno.value)
-            localStorage.setItem("upbndateofissue", upbndateofissue.value)
-            localStorage.setItem("upbndateofregistration", upbndateofregistration.value)
+                upbndateofbirthword: upbndateofbirthword,
+                upbndateofbirthdate: upbndateofbirthdate,
+                upbndateofbirthmonth: upbndateofbirthmonth,
+                upbndateofbirthyear: upbndateofbirthyear,
 
-            localStorage.setItem("upbnname", upbnname.value)
-            localStorage.setItem("upbnbrnumber", upbnbrnumber.value)
-            localStorage.setItem("upbndateofbirthword", upbndateofbirthword.value)
+                upbnorderchild: upbnorderchild,
+                upbngender: upbngender,
+                upbnfathername: upbnfathername,
+                upbnfathernid: upbnfathernid,
 
-            localStorage.setItem("upbndateofbirthdate", upbndateofbirthdate.value)
-            localStorage.setItem("upbndateofbirthmonth", upbndateofbirthmonth.value)
-            localStorage.setItem("upbndateofbirthyear", upbndateofbirthyear.value)
-            localStorage.setItem("upbnorderchild", upbnorderchild.value)
-            localStorage.setItem("upbngender", upbngender.value)
+                upbnfatherbrn: upbnfatherbrn,
+                upbnmothername: upbnmothername,
+                upbnmothernid: upbnmothernid,
+                upbnmotherbrn: upbnmotherbrn,
 
-            localStorage.setItem("upbnfathername", upbnfathername.value)
-            localStorage.setItem("upbnfathernid", upbnfathernid.value)
-            localStorage.setItem("upbnfatherbrn", upbnfatherbrn.value)
+                upbnbirthplace: upbnbirthplace,
+                upbnpermanentaddress: upbnpermanentaddress
+            }
 
-            localStorage.setItem("upbnmothername", upbnmothername.value)
-            localStorage.setItem("upbnmothernid", upbnmothernid.value)
-            localStorage.setItem("upbnmotherbrn", upbnmotherbrn.value)
-
-            localStorage.setItem("upbnbirthplace", upbnbirthplace.value)
-            localStorage.setItem("upbnpermanentaddress", upbnpermanentaddress.value)
-
+            window.localStorage.setItem("upozilabangla", JSON.stringify(upozilabangla));
 
             window.location = "upozilabangla.html"
         }
