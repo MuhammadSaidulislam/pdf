@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html dir="ltr" mozdisallowselectionprint=""
+    style="--viewer-container-height: 184px; --progressBar-percent: 100%; --progressBar-end-offset: 17px; --scale-factor: 1.6666666666666665;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>english</title>
+
+    <script src="./js/pdf.js"></script>
+
+    <link rel="stylesheet" href="./css/viewer.css">
+
+    <script src="./js/viewer.js"></script>
+
+    <style>
+         .downloadBtn{
+    background-color: rgb(17, 119, 202);
+    padding: 10px 15px;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+}
+        .textLayer {
+  position: absolute;
+  text-align: initial;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 1;
+  line-height: 1;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  background-image: url("./image/bgc.png"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  font-family: 'CustomFont', sans-serif;
+/* font-weight:normal;
+font-style:normal; */
+
+}
+    </style>
+
+</head>
+
+<body onload="setData()">
+
+    <div id="viewerContainer" tabindex="0">
+        <div id="viewer" class="pdfViewer">
+            <div class="page html-content" style="width: 1019px; height: 1319px;" data-page-number="1" role="region"
+                aria-label="Page 1" data-loaded="true">
+                <div style="width: 1019px; height: 1319px;" class="canvasWrapper"><canvas role="presentation"
+                        style="width: 1020px; height: 1320px;" width="1020" height="1320"></canvas></div>
+                <div class="textLayer pdfdown" style="width: 1019px; height: 1319px;">
+                    <span
+                        style="left: 264.8px; top: 76.9121px; font-size: 17.4167px; font-weight: 600; transform: scaleY(1.13);"
+                        role="presentation" dir="ltr">Government of the people's republic of Bangladesh</span>
+
+                    <br role="presentation">
+
+                    <span
+                        style="left: 372.4px; top: 106.104px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr">Office of Birth and Death register</span>
+
+                    <br role="presentation">
+
+                    <span
+                        style="left: 353px; top: 131.504px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="zoneaddress_show"></span>
+
+
+                    <br role="presentation"><span
+                        style="left: 314px; top: 161.704px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr">City Corporation: </span>
+                    <span
+                        style="left: 465.8px; top: 161.704px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="citycorporation_show"></span>
+                    <br role="presentation">
+                    <span
+                        style="left: 396.4px; top: 182.302px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr">District:</span>
+                    <span
+                        style="left: 468.4px; top: 182.302px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="district_show"></span>
+
+
+                    <br role="presentation">
+
+                    <span
+                        style="left: 345.2px; top: 215.479px; font-size: 20.8333px; font-weight: 600;"
+                        role="presentation" dir="ltr">Birth Registration Certificate</span>
+                    <br role="presentation">
+                    <span style="left: 423.4px; top: 242.305px; font-size: 13.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr">[ Note to rules 9 and 10 ]</span>
+                    <br role="presentation">
+                    <span style="left: 418.4px; top: 260.905px; font-size: 13.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr">( extracted from BR Book )</span>
+                    <br role="presentation"><span
+                        style="left: 75px; top: 279.504px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr">Register No.</span>
+                    <!-- regisyer no -->
+                    <span
+                        style="left: 260px; top: 279.504px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="registerno_show">201</span>
+                        
+                    <span
+                        style="left: 720px; top: 279.504px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr">Date of Issue: </span>
+                    <!-- date of issue -->
+                    <span
+                        style="left: 840.4px; top: 279.504px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="dateofissue_show"></span>
+                    <br role="presentation"><span
+                        style="left: 72.4px; top: 319.904px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr">Date of Registration:</span>
+                    <span style="left: 241.102px; top: 319.904px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span>
+                    <!-- date of registration -->
+                    <span
+                        style="left: 266.2px; top: 319.904px; font-size: 15px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="dateofregistration_show"></span>
+                        <br role="presentation"><span
+                        style="left: 71px; top: 367.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">BR Number:</span>
+                    <span
+                        style="left: 104.2px; top: 367.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr"></span>
+                    <br role="presentation"><span
+                        style="left: 73.8px; top: 425.703px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Name:</span><span
+                        style="left: 132.742px; top: 425.703px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span>
+                    <!-- Name -->
+                    <span
+                        style="left: 251px; top: 425.703px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="name_show"></span>
+
+                    <br role="presentation">
+
+                    <span
+                        style="left: 70px; top: 470.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Date of Birth:</span>
+                    <br role="presentation">
+                    <span
+                        style="left: 68.4px; top: 538.101px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">In Word:</span>
+
+                
+                    <!-- in word birthday -->
+                    <span
+                        style="left: 251px; top: 538.101px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="dateofbirthword_show"></span>
+                        
+
+                    <span style="left: 358.418px; top: 538.101px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span><span
+                        style="left: 679.2px; top: 538.101px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Order of Child:</span>
+                    <span style="left: 808.942px; top: 538.101px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span>
+                    <!-- order od child -->
+                    <span style="left: 820px; top: 538.101px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="orderchild_show"></span><br role="presentation"><span
+                        style="left: 69.2px; top: 583.112px; font-size: 18.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr">Place of Birth:</span>
+                    <span style="left: 209.445px; top: 583.112px; font-size: 18.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span>
+                    <!-- place of birth -->
+                    <span
+                        style="left: 252.2px; top: 583.112px; font-size: 18.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="birthplace_show"></span>
+                    <br role="presentation">
+                    <span
+                        style="left: 69.2px; top: 608.112px; font-size: 18.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr">Permanent Address:</span>
+                    <span style="left: 269.644px; top: 608.112px; font-size: 18.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span>
+                    <!-- permanent address -->
+                    <span
+                        style="left: 300px; top: 609.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="permanentaddress_show">
+                    </span>
+                    <br role="presentation">
+
+                    <!-- <span
+                                style="left: 300px; top: 632.903px; font-size: 16.5833px; transform: scaleX(1.31366);"
+                                role="presentation" dir="ltr">Andarchar, Noakhali Sadar, Noakhali, Chattogram Division</span>
+                            -->
+                    <br role="presentation">
+                    <span
+                        style="left: 105px; top: 661.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Father’s Name:</span>
+                    <span style="left: 242.342px; top: 661.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span><span
+                        style="left: 292.4px; top: 661.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="fathername_show"></span>
+                    <br role="presentation">
+                    <span
+                        style="left: 105px; top: 687.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Father’s BRN:</span>
+                    <span
+                        style="left: 292.4px; top: 687.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="fatherbrn_show"></span>
+                    <span
+                        style="left: 624.2px; top: 687.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Father’s Nationality: Bangladeshi</span>
+
+                        <br role="presentation"><span
+                        style="left: 105px; top: 720.703px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Father’s NID:</span>
+                    <span
+                        style="left: 292.4px; top: 720.703px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="fathernid_show"></span>
+                    <br role="presentation">
+                    <span
+                        style="left: 105px; top: 791.303px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Mother’s Name:</span>
+                    <span style="left: 247.542px; top: 791.303px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span>
+                    <!-- mother name -->
+                    <span
+                        style="left: 292px; top: 791.303px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="mothername_show"></span>
+
+                    <br role="presentation">
+                    <span
+                        style="left: 105px; top: 817.303px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Mother’s BRN:</span>
+                    <span
+                        style="left: 292px; top: 817.303px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="motherbrn_show"></span>
+                    <span
+                        style="left: 620.2px; top: 817.303px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Mother’s Nationality: Bangladeshi</span>
+                    
+                    <br role="presentation">
+                    <span
+                        style="left: 105px; top: 843.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Mother’ NID:</span>
+                    <span
+                        style="left: 292px; top: 843.503px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr" id="mothernid_show"></span>
+                    <br role="presentation">
+                    <span style="left: 624px; top: 1073.51px; font-size: 16px; font-weight: 600;"
+                        role="presentation" dir="ltr">(Signature and seal of the Registrar)</span>
+                    <br role="presentation">
+                    <span
+                        style="left: 310px; top: 1139.1px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">(Prepared by)</span>
+                    <span style="left: 433.236px; top: 1139.1px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr"> </span>
+                    <span
+                        style="left: 465px; top: 1139.1px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">(Verified by)</span>
+                    <br role="presentation">
+                    <span
+                        style="left: 71px; top: 1161.7px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Seal of Registrar Office</span>
+                    <br role="presentation">
+                    <!-- br number -->
+                    <span
+                        style="left: 275.8px; top: 365.519px; font-size: 23.4167px; letter-spacing: 1.67rem; font-weight: 600;"
+                        role="presentation" dir="ltr" id="brnumber_show"></span>
+
+
+                    <br role="presentation">
+                    <!-- birth date -->
+                    <span
+                        style="left: 262px; top: 477.101px; font-size: 16.5833px; letter-spacing: 1.3rem; font-weight: 600;"
+                        role="presentation" dir="ltr" id="dateofbirthdate_show"></span>
+
+                    <!-- month -->
+                    <span
+                        style="left: 334.8px; top: 477.101px; font-size: 16.5833px; letter-spacing: 1.3rem; font-weight: 600;"
+                        role="presentation" dir="ltr" id="dateofbirthmonth_show"></span>
+
+                    <!-- year -->
+                    <span
+                        style="left: 409.8px; top: 477.101px; font-size: 16.5833px; letter-spacing: 1.1rem; font-weight: 600;"
+                        role="presentation" dir="ltr" id="dateofbirthyear_show"></span>
+
+                    <br role="presentation">
+                    <span
+                        style="left: 815px; top: 85.1121px; font-size: 18.4167px; font-weight: 600;"
+                        role="presentation" dir="ltr">BDR Form-3</span>
+                    <br role="presentation">
+                    <span
+                        style="left: 742.8px; top: 431.101px; font-size: 16.5833px; font-weight: 600;"
+                        role="presentation" dir="ltr">Sex:</span><span
+                        style="left: 777.943px; top: 431.101px; font-size: 16.5833px;"
+                        role="presentation" dir="ltr"> </span>
+                    <span
+                        style="left: 783.4px; top: 431.101px; font-size: 16.5833px;  font-weight: 600;"
+                        role="presentation" dir="ltr" id="gender_show"></span>
+                    <div class="endOfContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-info downloadBtn" onclick="CreatePDFfromHTML()">Download file</button>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script>
+        function CreatePDFfromHTML() {
+            var HTML_Width = $(".html-content").width();
+            var HTML_Height = $(".html-content").height();
+            var top_left_margin = 15;
+            var PDF_Width = HTML_Width + (top_left_margin * 2);
+            var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
+
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+            html2canvas($(".html-content")[0]).then(function (canvas) {
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+                for (var i = 1; i <= totalPDFPages; i++) {
+                    pdf.addPage(PDF_Width, PDF_Height);
+                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
+                }
+                pdf.save("english.pdf");
+                // $(".html-content").hide();
+            });
+        }
+    </script>
+    <script>
+        function setData() {
+            const zoneaddress = localStorage.getItem('zoneaddress');
+            const citycorporation = localStorage.getItem('citycorporation');
+            const district = localStorage.getItem('district');
+
+            const registerno = localStorage.getItem('registerno');
+            const dateofissue = localStorage.getItem('dateofissue');
+            const dateofregistration = localStorage.getItem('dateofregistration');
+
+            const name = localStorage.getItem('name');
+            const brnumber = localStorage.getItem('brnumber');
+            const dateofbirthdate = localStorage.getItem('dateofbirthdate');
+            const dateofbirthmonth = localStorage.getItem('dateofbirthmonth');
+            const dateofbirthyear = localStorage.getItem('dateofbirthyear');
+
+            const dateofbirthword = localStorage.getItem('dateofbirthword');
+            const orderchild = localStorage.getItem('orderchild');
+            const gender = localStorage.getItem('gender');
+
+            const fathername = localStorage.getItem('fathername');
+            const fathernid = localStorage.getItem('fathernid');
+            const fatherbrn = localStorage.getItem('fatherbrn');
+
+            const mothername = localStorage.getItem('mothername');
+            const mothernid = localStorage.getItem('mothernid');
+            const motherbrn = localStorage.getItem('motherbrn');
+
+            const birthplace = localStorage.getItem('birthplace');
+            const permanentaddress = localStorage.getItem('permanentaddress');
+
+
+            document.getElementById("zoneaddress_show").innerHTML = zoneaddress;
+            document.getElementById("citycorporation_show").innerHTML = citycorporation;
+            document.getElementById("district_show").innerHTML = district;
+
+
+            document.getElementById("registerno_show").innerHTML = registerno;
+              document.getElementById("dateofissue_show").innerHTML = dateofissue;
+            document.getElementById("dateofregistration_show").innerHTML = dateofregistration;
+
+            document.getElementById("name_show").innerHTML = name;
+            document.getElementById("brnumber_show").innerHTML = brnumber;
+            document.getElementById("dateofbirthdate_show").innerHTML = dateofbirthdate;
+            document.getElementById("dateofbirthmonth_show").innerHTML = dateofbirthmonth;
+            document.getElementById("dateofbirthyear_show").innerHTML = dateofbirthyear;
+
+              document.getElementById("dateofbirthword_show").innerHTML = dateofbirthword;
+            document.getElementById("orderchild_show").innerHTML = orderchild;
+            document.getElementById("gender_show").innerHTML = gender;
+
+            document.getElementById("fathername_show").innerHTML = fathername;
+            document.getElementById("fathernid_show").innerHTML = fathernid;
+            document.getElementById("fatherbrn_show").innerHTML = fatherbrn;
+
+            document.getElementById("mothername_show").innerHTML = mothername;
+            document.getElementById("mothernid_show").innerHTML = mothernid;
+            document.getElementById("motherbrn_show").innerHTML = motherbrn;
+
+            document.getElementById("birthplace_show").innerHTML = birthplace;
+            document.getElementById("permanentaddress_show").innerHTML = permanentaddress;
+        }
+    </script>
+
+</body>
+
+</html>

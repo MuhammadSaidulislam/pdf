@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.input-form {
+    background-image: url("../image/bg_main.gif");
+    background-color: #cccccc;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.heading {
+    color: #495057;
+    text-align: center;
+    font-size: 35px;
+}
+
+.input-feild {
+    background-color: #fff;
+    padding: 60px 25px;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}
+
+.input-form label {
+    font-size: 14px;
+    font-family: 'CustomFont', sans-serif;
+    color: #424242;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.input-form input {
+    font-size: 14px;
+    padding: 10px 15px;
+    height: 42px;
+    margin-bottom: 15px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff !important;
+    background-color: #df34b4;
+    border-radius: none !important;
+    -webkit-border-radius: none !important;
+    -moz-border-radius: none !important;
+    -ms-border-radius: none !important;
+    -o-border-radius: none !important;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0rem;
+    -webkit-border-radius: 0rem;
+    -moz-border-radius: 0rem;
+    -ms-border-radius: 0rem;
+    -o-border-radius: 0rem;
+}
+
+.top-link .nav-item {
+    width: 25%;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid #df34b4;
+    transform: skew(-12deg);
+    -webkit-transform: skew(-12deg);
+    -moz-transform: skew(-12deg);
+    -ms-transform: skew(-12deg);
+    -o-transform: skew(-12deg);
+}
+
+.top-link .nav-item a {
+    color: #df34b4 !important;
+}
+
+.input-form .form-control:focus {
+    background-color: #fefeff;
+    border-color: #95a0f4;
+    color: #495057;
+    box-shadow: none !important;
+    outline: none;
+    font-weight: 600;
+    box-shadow: 1px 3px 6px 1px #dfdfdf !important;
+}
+
+.input-form .tab-content {
+    margin-top: 30px;
+}
+
+/* date */
+.gj-datepicker [role="right-icon"] {
+    cursor: pointer;
+    display: none;
+}
+
+.downloadBtn {
+    background-color: rgb(17, 119, 202);
+    padding: 8px 12px;
+    right: 0px;
+    position: absolute;
+}
+
+.file-list{
+    background-color: #fff;
+    padding: 60px 20px;
+}
