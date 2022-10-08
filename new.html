@@ -9,23 +9,16 @@
     <!-- bootstrap  cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/fontawesome.min.js" integrity="sha512-j3gF1rYV2kvAKJ0Jo5CdgLgSYS7QYmBVVUjduXdoeBkc4NFV4aSRTi+Rodkiy9ht7ZYEwF+s09S43Z1Y+ujUkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"
+        integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/fontawesome.min.js"
+        integrity="sha512-j3gF1rYV2kvAKJ0Jo5CdgLgSYS7QYmBVVUjduXdoeBkc4NFV4aSRTi+Rodkiy9ht7ZYEwF+s09S43Z1Y+ujUkA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- custom css -->
     <link rel="stylesheet" href="./css/birth.css">
     <link rel="stylesheet" href="./css/viewer.css">
     <style>
-        .downloadBtn {
-            background-color: rgb(17, 119, 202);
-            padding: 10px 15px;
-            top: 0px;
-            right: 0px;
-            position: absolute;
-            border: none;
-            border-radius: 4px;
-            color: #fff;
-        }
-
         .textLayer {
             position: absolute;
             text-align: initial;
@@ -39,16 +32,11 @@
             text-size-adjust: none;
             forced-color-adjust: none;
             background-image: url("./image/bangla.png");
-            /* The image used */
             background-color: #cccccc;
-            /* Used if the image is unavailable */
             height: 100%;
             background-position: center;
-            /* Center the image */
             background-repeat: no-repeat;
-            /* Do not repeat the image */
             background-size: cover;
-            /* Resize the background image to cover the entire container */
             font-family: 'banglaFont';
             /* font-weight:normal;
 font-style:normal; */
@@ -57,14 +45,15 @@ font-style:normal; */
     </style>
 </head>
 
-<body onload="sebangla()">
+<body>
 
     <nav class="navbar navbar-expand-lg main-navbar sticky" style="left:0;">
 
         <div class="form-inline mr-auto d-none d-md-block">
             <ul class="navbar-nav mr-3">
                 <li id="mynavbar" style="background: #333; color: #cccccc; border-radius: 10px;">
-                    <a onclick="openNav()" data-toggle="sidebar" id="sidebar" class="nav-link nav-link-lg collapse-btn imgremove">
+                    <a onclick="openNav()" data-toggle="sidebar" id="sidebar"
+                        class="nav-link nav-link-lg collapse-btn imgremove">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-menu">
@@ -134,6 +123,7 @@ font-style:normal; */
         </div>
     </div>
 
+    <div id="pdfShow"></div>
 
     <section class="input-form" id="main">
         <div class="container">
@@ -142,71 +132,7 @@ font-style:normal; */
                     <div class="file-list">
                         <h1>File list</h1>
                         <div class="table-responsive">
-                            <table class="table table-hover" id="table-2">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Date Of Birth</th>
-                                        <th>Gender</th>
-                                        <th>Nationality</th>
-                                        <th>Created By</th>
-                                        <th>Created Date</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="text-center pt-2">
-                                            234
-                                        </td>
-                                        <td>21-10-2022</td>
-                                        <td>Male</td>
-                                        <td class="align-middle">
-                                            Bangladeshi
-                                        </td>
-                                        <td>
-                                            MORSHED
-                                        </td>
-
-                                        <td>06-10-2022</td>
-                                        <td style="width: 30%;">
-                                            <a href="./index.html" class="btn btn-secondary">Edit</a>
-                                            <button onclick="CreatePDFfromHTML()"
-                                                class="btn btn-primary downloadPdf">Download</button>
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="text-center pt-2">
-                                            Tomi
-                                        </td>
-                                        <td>07-10-2022</td>
-                                        <td>Male</td>
-                                        <td class="align-middle">
-                                            Bangladeshi
-                                        </td>
-                                        <td>
-                                            MORSHED
-                                        </td>
-
-                                        <td>04-10-2022</td>
-                                        <td style="width: 30%;">
-                                            <a href="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/user/edit/submission/651"
-                                                class="btn btn-secondary">Edit</a>
-
-                                            <!--<a href="#myModal" data-id="651" data-toggle="modal" id="viewpdf"  class="btn btn-primary">View</a>-->
-                                            <button onclick="CreatePDFfromHTML()"
-                                                class="btn btn-primary downloadPdf">Download</button>
-                                        </td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <table class="table table-hover" id="employees"></table>
                         </div>
                     </div>
                 </div>
@@ -218,35 +144,137 @@ font-style:normal; */
         <div class="containerm">
             <!-- code here -->
             <div class="menum" style="display: flex;">
-              <a href="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/user/create/file/submission" class="menu-itemm">
-                <span class="material-icons"><i class="fa-solid fa-folder-open"></i></span>
-        
-                <span class="menu-item-labelm">Create File</span>
-              </a>
-              <a href="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/user/file/submission/list" class="menu-itemm">
-                <span class="material-icons"><i class="fa-solid fa-folder-open"></i></span>
-                <span class="menu-item-labelm">File List</span>
-              </a>
-        
-              
-              <!--<a href="https://tawk.to/chat/6318f79b37898912e967d63a/1gcd7l7j7" target="_blank" class="menu-itemm">-->
-                  
-                   <a href="https://wa.me/8801978415438?text=Hello" target="_blank" class="menu-itemm">
-                <span class="material-icons">chat</span>
-                <span class="menu-item-labelm">Live Chat</span>
-              </a>
+                <a href="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/user/create/file/submission"
+                    class="menu-itemm">
+                    <span class="material-icons"><i class="fa-solid fa-folder-open"></i></span>
+
+                    <span class="menu-item-labelm">Create File</span>
+                </a>
+                <a href="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/user/file/submission/list"
+                    class="menu-itemm">
+                    <span class="material-icons"><i class="fa-solid fa-folder-open"></i></span>
+                    <span class="menu-item-labelm">File List</span>
+                </a>
+
+
+                <!--<a href="https://tawk.to/chat/6318f79b37898912e967d63a/1gcd7l7j7" target="_blank" class="menu-itemm">-->
+
+                <a href="https://wa.me/8801978415438?text=Hello" target="_blank" class="menu-itemm">
+                    <span class="material-icons">chat</span>
+                    <span class="menu-item-labelm">Live Chat</span>
+                </a>
             </div>
             <!-- end of code -->
-          </div>
+        </div>
     </section>
 
 
-    <div id="viewerContainer" class="" tabindex="0">
+
+
+    <!-- bootstrap js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+
+    <script>
+        function CreatePDFfromHTML() {
+            var HTML_Width = $(".html-content").width();
+            var HTML_Height = $(".html-content").height();
+            var top_left_margin = 0;
+            var PDF_Width = HTML_Width;
+            var PDF_Height = (HTML_Height);
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
+
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+            html2canvas($(".html-content")[0]).then(function (canvas) {
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+                for (var i = 1; i <= totalPDFPages; i++) {
+                    pdf.addPage(PDF_Width, PDF_Height);
+                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin), canvas_image_width, canvas_image_height);
+                }
+                pdf.save("bangla.pdf");
+                // $(".html-content").hide();
+            });
+        }
+    </script>
+
+
+
+    <script>
+        //         fetch('http://localhost:8000/all-info')           
+        //   .then(response => response.json())
+        //   .then(data => console.log(data.cityCorporation));
+        const api_url =
+            "http://localhost:8000/all-info";
+
+        async function getapi(url) {
+            const response = await fetch(url);
+            var data = await response.json();
+            console.log('city', data.cityCorporation);
+            show(data);
+            pdf(data.cityCorporation);
+        }
+        getapi(api_url);
+        function hideloader() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        function show(data) {
+            let tab =
+                `<thead><tr>
+                <th>NO</th>
+                                    <th>Name</th>
+                                    <th>BR No</th>
+                                    <th>Gender</th>
+                                    <th>fathersName</th>
+                                    <th>mothersName</th>
+                                    <th>Created Date</th>
+                                    <th>Action</th>
+     </tr> </thead>`;
+            for (let r of data.cityCorporation) {
+                tab += `<tbody><tr> 
+                <td>${r.id}</td>
+<td>${r.fullName}</td>
+<td>${r.brNo}</td>
+<td>${r.gender}</td>
+<td>${r.fathersName}</td>
+<td>${r.mothersName}</td> 
+<td>${r.createdAt}</td>  
+<td style="width: 30%;">
+ <a href="" class="btn btn-secondary">Edit</a>
+<a onclick="CreatePDFfromHTML()" id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
+</td>
+</tr></tbody>`;
+            }
+            // Setting innerHTML as tab variable
+            document.getElementById("employees").innerHTML = tab;
+        }
+
+
+        function pdf(data) {
+            let pdfFile = `<div id="viewerContainer" class="" tabindex="0">`
+            for (let pdfData of data) {
+                pdfFile += `
         <div id="viewer" class="pdfViewer">
-            <!-- <div class="page" style="width: 1019px; height: 1319px;" data-page-number="1" role="region"
-                aria-label="Page 1" data-loaded="true"> -->
-            <!-- <div style="width: 1019px; height: 1319px;" class="canvasWrapper"><canvas role="presentation"
-                        style="width: 1020px; height: 1320px;" width="1020" height="1320"></canvas></div> -->
             <div class="textLayer html-content" style="width: 1019px; height: 1319px;">
                 <span style="left: 367px; top: 76.9121px; font-size: 20px; font-weight: 500; line-height: 13px;"
                     role="presentation" dir="ltr">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span>
@@ -259,11 +287,7 @@ font-style:normal; */
                 <br role="presentation">
 
                 <span style="left: 375px; top: 121.504px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnzoneaddress_show"></span>
-
-                <!-- <span
-                        style="left: 418.4px; top: 121.504px; font-size: 15px; font-weight: 500; transform: scaleX(1.2909);"
-                        role="presentation" dir="ltr">Dhaka North City Corporation</span> -->
+                    dir="ltr" id="bnzoneaddress_show">${pdfData.fullName}</span>
                 <br role="presentation"><span style="left: 352px; top: 163.104px; font-size: 15px; font-weight: 500;"
                     role="presentation" dir="ltr">সিটি কপোরেশন:</span>
                 <span style="left: 475.2px; top: 163.104px; font-size: 15px; font-weight: 500;" role="presentation"
@@ -287,21 +311,16 @@ font-style:normal; */
                     dir="ltr">(জন্ম নিবন্ধন বহি হতে উদৃধৃত)</span>
                 <br role="presentation"><span style="left: 68.2px; top: 277.302px; font-size: 15px; font-weight: 500;"
                     role="presentation" dir="ltr">নিবন্ধন বহি নম্বরঃ</span>
-                <!-- regisyer no -->
                 <span style="left: 240px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
                     dir="ltr" id="bnregisterno_show"></span>
 
                 <span style="left: 689px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
                     dir="ltr">সনদ প্রদানের তারিখ:</span>
-                <!-- date of issue -->
                 <span style="left: 836.8px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
                     dir="ltr" id="bndateofissue_show"></span>
                 <br role="presentation">
                 <span style="left: 68.2px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
                     dir="ltr">নিবন্ধনের তারিখ:</span>
-                <!-- <span style="left: 241.102px; top: 319.904px; font-size: 15px; font-weight: 500;"
-                        role="presentation" dir="ltr"> </span> -->
-                <!-- date of registration -->
                 <span style="left: 240px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
                     dir="ltr" id="bndateofregistration_show"></span>
 
@@ -309,14 +328,11 @@ font-style:normal; */
 
                 <span style="left: 67.4px; top: 367.503px; font-size: 15px; font-weight: 500;" role="presentation"
                     dir="ltr">জন্মনিবন্ধন নম্বরঃ</span>
-                <!-- <span style="left: 104.2px; top: 367.503px; font-size: 16.5833px; font-weight: 500; transform: scaleX(1.24502);"
-                        role="presentation" dir="ltr"></span> -->
                 <br role="presentation">
                 <span style="left: 73.8px; top: 419.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
                     dir="ltr">নামঃ</span><span
                     style="left: 132.742px; top: 425.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
                     dir="ltr"> </span>
-                <!-- Name -->
                 <span style="left: 244.598px; top: 419.903px; font-size: 16.5833px; font-weight: 500;"
                     role="presentation" dir="ltr" id="bnname_show"></span>
                 <br role="presentation">
@@ -446,120 +462,11 @@ font-style:normal; */
             </div>
             <!-- </div> -->
         </div>
-    </div>
-
-    <!-- bootstrap js cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-
-
-    <script>
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
+    </div>`
+                document.getElementById("pdfShow").innerHTML = pdfFile;
+            }
         }
     </script>
-
-
-    <script>
-        function CreatePDFfromHTML() {
-            var HTML_Width = $(".html-content").width();
-            var HTML_Height = $(".html-content").height();
-            var top_left_margin = 0;
-            var PDF_Width = HTML_Width;
-            var PDF_Height = (HTML_Height);
-            var canvas_image_width = HTML_Width;
-            var canvas_image_height = HTML_Height;
-
-            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
-
-            html2canvas($(".html-content")[0]).then(function (canvas) {
-                var imgData = canvas.toDataURL("image/jpeg", 1.0);
-                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
-                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
-                for (var i = 1; i <= totalPDFPages; i++) {
-                    pdf.addPage(PDF_Width, PDF_Height);
-                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin), canvas_image_width, canvas_image_height);
-                }
-                pdf.save("bangla.pdf");
-                // $(".html-content").hide();
-            });
-        }
-    </script>
-    <script>
-        function sebangla() {
-            var citycorporationbangla = JSON.parse(localStorage.getItem('citycorporationbangla'));
-            console.log('data', citycorporationbangla.bnzoneaddress);
-            // const bnzoneaddress = localStorage.getItem('bnzoneaddress');
-            // const bncitycorporation = localStorage.getItem('bncitycorporation');
-            // const bndistrict = localStorage.getItem('bndistrict');
-
-            // const bnregisterno = localStorage.getItem('bnregisterno');
-            // const bndateofissue = localStorage.getItem('bndateofissue');
-            // const bndateofregistration = localStorage.getItem('bndateofregistration');
-
-            // const bnname = localStorage.getItem('bnname');
-            // const bnbrnumber = localStorage.getItem('bnbrnumber');
-            // const bndateofbirthdate = localStorage.getItem('bndateofbirthdate');
-            // const bndateofbirthmonth = localStorage.getItem('bndateofbirthmonth');
-            // const bndateofbirthyear = localStorage.getItem('bndateofbirthyear');
-
-            // const bndateofbirthword = localStorage.getItem('bndateofbirthword');
-            // const bnorderchild = localStorage.getItem('bnorderchild');
-            // const bngender = localStorage.getItem('bngender');
-
-            // const bnfathername = localStorage.getItem('bnfathername');
-            // const bnfathernid = localStorage.getItem('bnfathernid');
-            // const bnfatherbrn = localStorage.getItem('bnfatherbrn');
-
-            // const bnmothername = localStorage.getItem('bnmothername');
-            // const bnmothernid = localStorage.getItem('bnmothernid');
-            // const bnmotherbrn = localStorage.getItem('bnmotherbrn');
-
-            // const bnbirthplace = localStorage.getItem('bnbirthplace');
-            // const bnpermanentaddress = localStorage.getItem('bnpermanentaddress');
-
-
-            document.getElementById("bnzoneaddress_show").innerHTML = citycorporationbangla.bnzoneaddress;
-            document.getElementById("bncitycorporation_show").innerHTML = citycorporationbangla.bncitycorporation;
-            document.getElementById("bndistrict_show").innerHTML = citycorporationbangla.bndistrict;
-
-
-            document.getElementById("bnregisterno_show").innerHTML = citycorporationbangla.bnregisterno;
-            document.getElementById("bndateofissue_show").innerHTML = citycorporationbangla.bndateofissue;
-            document.getElementById("bndateofregistration_show").innerHTML = citycorporationbangla.bndateofregistration;
-
-            document.getElementById("bnname_show").innerHTML = citycorporationbangla.bnname;
-            document.getElementById("bnbrnumber_show").innerHTML = citycorporationbangla.bnbrnumber;
-            document.getElementById("bndateofbirthdate_show").innerHTML = citycorporationbangla.bndateofbirthdate;
-            document.getElementById("bndateofbirthmonth_show").innerHTML = citycorporationbangla.bndateofbirthmonth;
-            document.getElementById("bndateofbirthyear_show").innerHTML = citycorporationbangla.bndateofbirthyear;
-
-            document.getElementById("bndateofbirthword_show").innerHTML = citycorporationbangla.bndateofbirthword;
-            document.getElementById("bnorderchild_show").innerHTML = citycorporationbangla.bnorderchild;
-            document.getElementById("bngender_show").innerHTML = citycorporationbangla.bngender;
-
-            document.getElementById("bnfathername_show").innerHTML = citycorporationbangla.bnfathername;
-            document.getElementById("bnfathernid_show").innerHTML = citycorporationbangla.bnfathernid;
-            document.getElementById("bnfatherbrn_show").innerHTML = citycorporationbangla.bnfatherbrn;
-
-            document.getElementById("bnmothername_show").innerHTML = citycorporationbangla.bnmothername;
-            document.getElementById("bnmothernid_show").innerHTML = citycorporationbangla.bnmothernid;
-            document.getElementById("bnmotherbrn_show").innerHTML = citycorporationbangla.bnmotherbrn;
-
-            document.getElementById("bnbirthplace_show").innerHTML = citycorporationbangla.bnbirthplace;
-            document.getElementById("bnpermanentaddress_show").innerHTML = citycorporationbangla.bnpermanentaddress;
-        }
-    </script>
-
 </body>
 
 </html>

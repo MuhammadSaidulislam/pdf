@@ -36,113 +36,62 @@
                         <!--<a href="https://shop.bkash.com/style-collection01758789207/pay/bdt500/8MrVeQ" class="btn btn-sm btn-success"  target="_blank">Add Amount</a>-->
                         <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal">Add
                             Amount</button>
-                            <div class="modal" id="myModal">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                              
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
                                     <!-- Modal body -->
                                     <div class="modal-body paymentAmount">
-                                     <h1>Minimum Amount 950 tk</h1>
-                                     <input type="text" class="form-control mt-2">
-                                     <button type="button" class="btn btn-danger mt-3" data-dismiss="modal">Save</button>
+                                        <h1>Minimum Amount 950 tk</h1>
+                                        <input type="text" class="form-control mt-2">
+                                        <button type="button" class="btn btn-danger mt-3"
+                                            data-dismiss="modal">Save</button>
                                     </div>
-                              
-                                  </div>
+
                                 </div>
-                              </div>
+                            </div>
+                        </div>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown link
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                  </li>
+                </li>
             </ul>
         </div>
     </nav>
 
 
     <section class="listSection">
+
+        <!-- <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" id="loading">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div> -->
+       
+
+
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="file-list">
                         <h1>File list</h1>
                         <div class="table-responsive">
-                            <table class="table table-hover" id="table-2">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Date Of Birth</th>
-                                        <th>Gender</th>
-                                        <th>Nationality</th>
-                                        <th>Created By</th>
-                                        <th>Created Date</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="text-center pt-2">
-                                            234
-                                        </td>
-                                        <td>21-10-2022</td>
-                                        <td>Male</td>
-                                        <td class="align-middle">
-                                            Bangladeshi
-                                        </td>
-                                        <td>
-                                            MORSHED
-                                        </td>
-
-                                        <td>06-10-2022</td>
-                                        <td style="width: 30%;">
-                                            <a href="./index.html" class="btn btn-secondary">Edit</a>
-                                            <a href="#" class="btn btn-primary downloadPdf">Download</a>
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="text-center pt-2">
-                                            Tomi
-                                        </td>
-                                        <td>07-10-2022</td>
-                                        <td>Male</td>
-                                        <td class="align-middle">
-                                            Bangladeshi
-                                        </td>
-                                        <td>
-                                            MORSHED
-                                        </td>
-
-                                        <td>04-10-2022</td>
-                                        <td style="width: 30%;">
-                                            <a href="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/user/edit/submission/651"
-                                                class="btn btn-secondary">Edit</a>
-
-                                            <!--<a href="#myModal" data-id="651" data-toggle="modal" id="viewpdf"  class="btn btn-primary">View</a>-->
-                                            <a href="#myModal" data-id="651" data-toggle="modal" id="downloadpdf"
-                                                class="btn btn-primary downloadPdf">Download</a>
-                                        </td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <table class="table table-hover" id="employees"></table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </section>
 
 
@@ -150,6 +99,72 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        //         fetch('http://localhost:8000/all-info')           
+        //   .then(response => response.json())
+        //   .then(data => console.log(data.cityCorporation));
+        const api_url =
+            "http://localhost:8000/all-info";
+
+        // Defining async function
+        async function getapi(url) {
+
+            // Storing response
+            const response = await fetch(url);
+
+            // Storing data in form of JSON
+            var data = await response.json();
+            console.log(data.cityCorporation);
+            // if (response) {
+            //     hideloader();
+            // }
+            show(data);
+        }
+        // Calling that async function
+        getapi(api_url);
+
+        // Function to hide the loader
+        function hideloader() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        // Function to define innerHTML for HTML table
+        function show(data) {
+            let tab =
+                `<thead><tr>
+                    <th>NO</th>
+                                        <th>Name</th>
+                                        <th>BR No</th>
+                                        <th>Gender</th>
+                                        <th>fathersName</th>
+                                        <th>mothersName</th>
+                                        <th>Created Date</th>
+                                        <th>Action</th>
+         </tr> </thead>`;
+
+            // Loop to access all rows 
+            for (let r of data.cityCorporation) {
+                tab += `<tbody><tr> 
+                    <td>${r.id}</td>
+    <td>${r.fullName}</td>
+    <td>${r.brNo}</td>
+    <td>${r.gender}</td>
+    <td>${r.fathersName}</td>
+    <td>${r.mothersName}</td> 
+    <td>${r.createdAt}</td>  
+    <td style="width: 30%;">
+     <a href="" class="btn btn-secondary">Edit</a>
+<a id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
+    </td>
+</tr></tbody>`;
+            }
+            // Setting innerHTML as tab variable
+            document.getElementById("employees").innerHTML = tab;
+        }
+    </script>
+
+
+
 
 </body>
 
