@@ -264,7 +264,7 @@ font-style:normal; */
 <td>${tableData.createdAt}</td>  
 <td style="width: 30%;">
  <a href="" class="btn btn-secondary">Edit</a>
-<a onclick="CreatePDFfromHTML(${tableData.id})" id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
+<a onclick="CreatePDFfromHTML(${tableData})" id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
 </td>
 </tr></tbody>`;
             }
@@ -471,7 +471,8 @@ font-style:normal; */
                 document.getElementById("pdfShow").innerHTML = pdfFile;
             }
         }
-    </script>
+   
+   </script>
 </body>
 
 </html>

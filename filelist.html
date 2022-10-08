@@ -10,66 +10,116 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <!-- custom css -->
     <link rel="stylesheet" href="./css/birth.css">
+    <link rel="stylesheet" href="./css/viewer.css">
+    <style>
+        .textLayer {
+            position: absolute;
+            text-align: initial;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 1;
+            line-height: 1;
+            text-size-adjust: none;
+            forced-color-adjust: none;
+            background-image: url("./image/bangla.png");
+            background-color: #cccccc;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'banglaFont';
+            /* font-weight:normal;
+font-style:normal; */
 
+        }
+    </style>
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Birth</a>
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="./index.html">Create file submission</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./filelist.html">File submission list</a>
-                </li>
-                <li class="nav-item">
-                    <div class="moneyShow">
-                        <p>92.00 ৳</p>
-                        <!--<a href="https://shop.bkash.com/style-collection01758789207/pay/bdt500/8MrVeQ" class="btn btn-sm btn-success"  target="_blank">Add Amount</a>-->
-                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal">Add
-                            Amount</button>
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body paymentAmount">
-                                        <h1>Minimum Amount 950 tk</h1>
-                                        <input type="text" class="form-control mt-2">
-                                        <button type="button" class="btn btn-danger mt-3"
-                                            data-dismiss="modal">Save</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky" style="left:0;">
+        <div class="form-inline mr-auto d-none d-md-block">
+            <ul class="navbar-nav mr-3">
+                <li id="mynavbar" style="background: #333; color: #cccccc; border-radius: 10px;">
+                    <a onclick="openNav()" data-toggle="sidebar" id="sidebar"
+                        class="nav-link nav-link-lg collapse-btn imgremove">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-menu">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
                 </li>
+                <span class="ddym"></span>
             </ul>
+        </div>
+        <div style="display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 10px;
+        background: #000;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px #000;">
+            <p style="margin:0px;    margin: 0px;
+          font-size: 18px;
+          margin-right: 15px;
+          color: #fff;
+          font-weight: bold;">92.00 ৳</p>
+
+            <a href="#addAmount" class="btn btn-sm btn-success" data-toggle="modal" target="_blank">Add Amount</a>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action" aria-expanded="false"
+                style="color:#000">MORSHED</a>
+            <div class="dropdown-menu">
+                <a href="" class="dropdown-item has-icon"><span class="acCSS">Setting</span><i class="fas fa-edit"></i>
+                </a><a href="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/user/logout"
+                    class="dropdown-item has-icon text-danger"><span class="acCSS"> Logout</span><i
+                        class="fas fa-sign-out-alt"></i>
+
+                </a>
+            </div>
         </div>
     </nav>
 
+    <div id="mySidebar" class="sidebar sidebarBox">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="main-sidebar sidebar-style-2 sidebar-show1">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <img src="https://surokkha.gov.bd-verify-online.id-m.z.ieode.xyz/assets/img/logo-placeholder-image.png"
+                        class="header-logo" style="width:50%">
+                    <br>
+                    <br>
+                </div>
 
-    <section class="listSection">
+
+                <ul class="sidebar-menu">
+                    <li class="dropdown">
+                        <a href="./index.html"
+                            class="nav-link"><i class="fas fa-chart-pie"></i><span>Create File Submission</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="./filelist.html"
+                            class="nav-link"><i class="fas fa-list"></i><span>File Submission List</span></a>
+                    </li>
+
+                    <br>
+                </ul>
+            </aside>
+        </div>
+    </div>
+    <!-- navbar end -->
+
+
+    <section class="listSection" id="main">
 
         <!-- <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status" id="loading">
@@ -84,21 +134,77 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="file-list">
-                        <h1>File list</h1>
-                        <div class="table-responsive">
-                            <table class="table table-hover" id="employees"></table>
+                        <h1 class="text-center mb-5">All File List Show</h1>
+                        <ul class="nav nav-pills mb-3 top-link" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                                    href="#citycorporation" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">City Corporation pdf list</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#upozila" role="tab"
+                                    aria-controls="pills-home" aria-selected="true">Upozila pdf list</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="citycorporation" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="citycorporationdata"></table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="upozila" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="upoziladata"></table>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div id="pdfShow"></div>
 
     <!-- bootstrap js cdn -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="./js/main.js"></script>
+
+    <!-- pdf genrate -->
+<script>
+    function CreatePDFfromHTML() {
+       
+        var HTML_Width = $(".html-content").width();
+        var HTML_Height = $(".html-content").height();
+        var top_left_margin = 0;
+        var PDF_Width = HTML_Width;
+        var PDF_Height = (HTML_Height);
+        var canvas_image_width = HTML_Width;
+        var canvas_image_height = HTML_Height;
+
+        var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+        html2canvas($(".html-content")[0]).then(function (canvas) {
+            var imgData = canvas.toDataURL("image/jpeg", 1.0);
+            var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+            pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+            for (var i = 1; i <= totalPDFPages; i++) {
+                pdf.addPage(PDF_Width, PDF_Height);
+                pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin), canvas_image_width, canvas_image_height);
+            }
+            pdf.save("bangla.pdf");
+            // $(".html-content").hide();
+        });
+    }
+</script>
+
+   
+
 
     <script>
         const saveuser = localStorage.getItem('savename');
@@ -107,15 +213,17 @@
         async function getapi(url) {
             const response = await fetch(url);
             var data = await response.json();
-            console.log(data);
-            show(data);
+   
+            city(data);
+            upozila(data);
+            pdf(data)
         }
         getapi(api_url);
         // function hideloader() {
         //     document.getElementById('loading').style.display = 'none';
         // }
         // Function to define innerHTML for HTML table
-        function show(data) {
+        function city(data) {
             let tab =
                 `<thead>
                     <tr>
@@ -131,31 +239,276 @@
                 </thead>`;
 
             // Loop to access all rows 
-            for (let r of data.cityCorporation) {
+            for (let citydata of data.cityCorporation) {
+                console.log("citycorporation",citydata);
                 tab += `<tbody>
                     <tr> 
-                    <td>${r.id}</td>
-                    <td>${r.fullName}</td>
-                    <td>${r.brNo}</td>
-                    <td>${r.gender}</td>
-                    <td>${r.fathersName}</td>
-                    <td>${r.mothersName}</td> 
-                    <td>${r.createdAt}</td>  
+                    <td>${citydata.id}</td>
+                    <td>${citydata.fullName}</td>
+                    <td>${citydata.brNo}</td>
+                    <td>${citydata.gender}</td>
+                    <td>${citydata.fathersName}</td>
+                    <td>${citydata.mothersName}</td> 
+                    <td>${citydata.createdAt}</td>  
                     <td style="width: 30%;">
                     <a href="" class="btn btn-secondary">Edit</a>
-                    <a id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
+                    <a id="downloadpdf" onclick="pdfcreate(${citydata.id})" class="btn btn-primary downloadPdf">Download</a>
                     </td>
                     </tr>
                     </tbody>`;
             }
             // Setting innerHTML as tab variable
-            document.getElementById("employees").innerHTML = tab;
+            document.getElementById("citycorporationdata").innerHTML = tab;
         }
 
+        function upozila(data) {
+            let tab =
+                `<thead>
+                    <tr>
+                    <th>NO</th>
+                    <th>Name</th>
+                    <th>BR No</th>
+                    <th>Gender</th>
+                    <th>fathersName</th>
+                    <th>mothersName</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                    </tr> 
+                </thead>`;
+
+            // Loop to access all rows 
+            for (let upoziladata of data.upozila) {
+                tab += `<tbody>
+                    <tr> 
+                    <td>${upoziladata.id}</td>
+                    <td>${upoziladata.fullName}</td>
+                    <td>${upoziladata.brNo}</td>
+                    <td>${upoziladata.gender}</td>
+                    <td>${upoziladata.fathersName}</td>
+                    <td>${upoziladata.mothersName}</td> 
+                    <td>${upoziladata.createdAt}</td>  
+                    <td style="width: 30%;">
+                    <a href="" class="btn btn-secondary">Edit</a>
+                    <a id="downloadpdf" onclick="pdfcreate()" class="btn btn-primary downloadPdf">Download</a>
+                    </td>
+                    </tr>
+                    </tbody>`;
+            }
+            // Setting innerHTML as tab variable
+            document.getElementById("upoziladata").innerHTML = tab;
+        }
+
+        function pdf(data) {
+           
+            let pdfFile = ``
+            for (let pdfData of data.upozila) {
+                pdfFile += `
+                <div id="viewerContainer" class="" tabindex="0">
+                    <div id="viewer" class="pdfViewer">
+            <div class="textLayer html-content" style="width: 1019px; height: 1319px;">
+                <span style="left: 367px; top: 76.9121px; font-size: 20px; font-weight: 500; line-height: 13px;"
+                    role="presentation" dir="ltr">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span>
+
+                <br role="presentation">
+
+                <span style="left: 401px; top: 101.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr">জন্ম ও মৃত্যু নিবন্ধকের কাযালয়</span>
+
+                <br role="presentation">
+
+                <span style="left: 375px; top: 121.504px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnzoneaddress_show"></span>
+                <br role="presentation"><span style="left: 352px; top: 163.104px; font-size: 15px; font-weight: 500;"
+                    role="presentation" dir="ltr">সিটি কপোরেশন:</span>
+                <span style="left: 475.2px; top: 163.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bncitycorporation_show"></span>
+                <br role="presentation">
+                <span style="left: 427.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr">জেলা:</span>
+                <span style="left: 475.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bndistrict_show"></span>
+
+
+                <br role="presentation">
+
+                <span style="left: 425.8px; top: 216.079px; font-size: 20.8333px; font-weight: 500;" role="presentation"
+                    dir="ltr">জন্ম নিবন্ধন সনদ</span>
+                <br role="presentation">
+                <span style="left: 445.2px; top: 241.305px; font-size: 13.4167px; font-weight: 500;" role="presentation"
+                    dir="ltr">[ বিধি ৯ ও ১০ দ্রষ্টব্য ]</span>
+                <br role="presentation">
+                <span style="left: 419.4px; top: 259.105px; font-size: 13.4167px; font-weight: 500;" role="presentation"
+                    dir="ltr">(জন্ম নিবন্ধন বহি হতে উদৃধৃত)</span>
+                <br role="presentation"><span style="left: 68.2px; top: 277.302px; font-size: 15px; font-weight: 500;"
+                    role="presentation" dir="ltr">নিবন্ধন বহি নম্বরঃ</span>
+                <span style="left: 240px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnregisterno_show"></span>
+
+                <span style="left: 689px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr">সনদ প্রদানের তারিখ:</span>
+                <span style="left: 836.8px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bndateofissue_show"></span>
+                <br role="presentation">
+                <span style="left: 68.2px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr">নিবন্ধনের তারিখ:</span>
+                <span style="left: 240px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bndateofregistration_show"></span>
+
+                <br role="presentation">
+
+                <span style="left: 67.4px; top: 367.503px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr">জন্মনিবন্ধন নম্বরঃ</span>
+                <br role="presentation">
+                <span style="left: 73.8px; top: 419.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">নামঃ</span><span
+                    style="left: 132.742px; top: 425.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr"> </span>
+                <span style="left: 244.598px; top: 419.903px; font-size: 16.5833px; font-weight: 500;"
+                    role="presentation" dir="ltr" id="bnname_show"></span>
+                <br role="presentation">
+
+                <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">জন্মতারিখঃ</span>
+
+                <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bndateofbirth_show"></span>
+                <br role="presentation">
+                <span style="left: 73px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">কথায়ঃ</span>
+
+
+                <!-- in word birthday -->
+
+                <span style="left: 235.2px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bndateofbirthword_show">
+                </span>
+
+                <span style="left: 705.8px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">সন্তানের ক্রমঃ</span>
+
+                <!-- order od child -->
+                <span style="left: 818.198px; top: 508.503px; font-size: 16.5833px; font-weight: 500;"
+                    role="presentation" dir="ltr" id="bnorderchild_show"></span><br role="presentation">
+                <span style="left: 69.2px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">জন্মস্থানঃ</span>
+
+                <!-- place of birth -->
+                <span style="left: 230.4px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnbirthplace_show"></span>
+                <br role="presentation">
+                <span style="left: 69.2px; top: 597.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">স্থায়ী ঠিকানাঃ</span>
+                <span style="left: 269.644px; top: 608.112px; font-size: 18.4167px; font-weight: 500;"
+                    role="presentation" dir="ltr"> </span>
+                <!-- permanent address -->
+                <span style="left: 232.598px; top: 597.303px; font-size: 16.5833px; font-weight: 500;"
+                    role="presentation" dir="ltr" id="bnpermanentaddress_show">
+                </span>
+
+
+                <br role="presentation">
+                <span style="left: 108.4px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">পিতার নামঃ</span>
+                <span style="left: 378.8px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnfathername_show"></span>
+                <br role="presentation">
+                <span style="left: 108.4px; top: 688.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">পিতার জন্ম নিবন্ধন নম্বরঃ</span>
+                <span style="left: 378.8px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnfathernid_show"></span>
+                <span style="left: 683px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">পিতার জাতীয়তা: বাংলাদেশী</span>
+                <br role="presentation"><span
+                    style="left: 108.4px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">পিতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
+                <span style="left: 378.8px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnfatherbrn_show"></span>
+                <br role="presentation">
+                <span style="left: 108.4px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">মাতার নামঃ</span>
+
+                <!-- mother name -->
+                <span style="left: 378.8px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnmothername_show"></span>
+
+                <br role="presentation">
+                <span style="left: 108.4px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">মাতার জন্ম নিবন্ধন নম্বরঃ</span>
+                <span style="left: 378.8px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnmothernid_show"></span>
+                <span style="left: 683px; top: 800.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">মাতার জাতীয়তা: বাংলাদেশী</span>
+
+                <br role="presentation">
+                <span style="left: 108.4px; top: 826.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr">মাতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
+                <span style="left: 378.8px; top: 826.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bnmotherbrn_show"></span>
+                <br role="presentation">
+                <span style="left: 720px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
+                    dir="ltr">(নিবন্ধকের স্বাক্ষর ও নামসহ সিল)</span>
+                <br role="presentation">
+                <span style="left: 305.4px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
+                    dir="ltr">প্রস্তুতকারীর স্বাক্ষর</span>
+
+                <span style="left: 474.4px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
+                    dir="ltr">যাচাইকারীর নাম, স্বাক্ষর ও সিল</span>
+                <br role="presentation">
+                <span style="left: 83px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
+                    dir="ltr">নিবন্ধকের কার্যালয়ের সিলমোহর</span>
+                <br role="presentation">
+                <!-- br number -->
+                <span
+                    style="left: 247.8px; top: 361.519px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.6rem;"
+                    role="presentation" dir="ltr" id="bnbrnumber_show"></span>
+
+
+                <br role="presentation">
+                <!-- birth date -->
+                <span
+                    style="left: 245px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                    role="presentation" dir="ltr" id="bndateofbirthdate_show"></span>
+
+                <!-- month -->
+                <span
+                    style="left: 317.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                    role="presentation" dir="ltr" id="bndateofbirthmonth_show"></span>
+
+                <!-- year -->
+                <span
+                    style="left: 390.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                    role="presentation" dir="ltr" id="bndateofbirthyear_show"></span>
+
+                <br role="presentation">
+                <span style="left: 815px; top: 86.1121px; font-size: 18.4167px; font-weight: 500;" role="presentation"
+                    dir="ltr">জমনি ফরম-৩</span>
+                <br role="presentation">
+                <span style="left: 707.2px; top: 435.704px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr">লিঙ্গঃ</span>
+
+                <span style="left: 749px; top: 434.503px; font-size: 15px; font-weight: 500;" role="presentation"
+                    dir="ltr" id="bngender_show"></span>
+                <div class="endOfContent"></div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>`
+                document.getElementById("pdfShow").innerHTML = pdfFile;
+            }
+        }
+   
     </script>
 
 
+<script>
+    function pdfcreate(data){
+        console.log(data);
+        CreatePDFfromHTML();
+    }
+</script>
 
+
+<!-- -->
 
 </body>
 
