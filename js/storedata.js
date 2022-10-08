@@ -67,6 +67,7 @@
         }
 
         function storebangla() {
+            
 
             const bnzoneaddress = document.getElementById("bnzoneaddress").value;
             const bncitycorporation = document.getElementById("bncitycorporation").value;

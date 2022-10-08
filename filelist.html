@@ -76,7 +76,7 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div> -->
-       
+
 
 
 
@@ -91,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </section>
 
 
@@ -117,38 +117,42 @@
         // Function to define innerHTML for HTML table
         function show(data) {
             let tab =
-                `<thead><tr>
+                `<thead>
+                    <tr>
                     <th>NO</th>
-                                        <th>Name</th>
-                                        <th>BR No</th>
-                                        <th>Gender</th>
-                                        <th>fathersName</th>
-                                        <th>mothersName</th>
-                                        <th>Created Date</th>
-                                        <th>Action</th>
-         </tr> </thead>`;
+                    <th>Name</th>
+                    <th>BR No</th>
+                    <th>Gender</th>
+                    <th>fathersName</th>
+                    <th>mothersName</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                    </tr> 
+                </thead>`;
 
             // Loop to access all rows 
             for (let r of data.cityCorporation) {
-                tab += `<tbody><tr> 
+                tab += `<tbody>
+                    <tr> 
                     <td>${r.id}</td>
-    <td>${r.fullName}</td>
-    <td>${r.brNo}</td>
-    <td>${r.gender}</td>
-    <td>${r.fathersName}</td>
-    <td>${r.mothersName}</td> 
-    <td>${r.createdAt}</td>  
-    <td style="width: 30%;">
-     <a href="" class="btn btn-secondary">Edit</a>
-<a id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
-    </td>
-</tr></tbody>`;
+                    <td>${r.fullName}</td>
+                    <td>${r.brNo}</td>
+                    <td>${r.gender}</td>
+                    <td>${r.fathersName}</td>
+                    <td>${r.mothersName}</td> 
+                    <td>${r.createdAt}</td>  
+                    <td style="width: 30%;">
+                    <a href="" class="btn btn-secondary">Edit</a>
+                    <a id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
+                    </td>
+                    </tr>
+                    </tbody>`;
             }
             // Setting innerHTML as tab variable
             document.getElementById("employees").innerHTML = tab;
         }
-   
-   </script>
+
+    </script>
 
 
 

@@ -87,14 +87,14 @@
                                 <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#upozilaenglish"
                                     role="tab" aria-controls="pills-home" aria-selected="true">Upozila pdf</a>
                             </li>
-                            <!-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#bangla" role="tab"
                                     aria-controls="pills-profile" aria-selected="false">সিটি কর্পোরেশন পিডিএফ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#upozilabangla"
                                     role="tab" aria-controls="pills-profile" aria-selected="false">উপজেলা পিডিএফ</a>
-                            </li> -->
+                            </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="english" role="tabpanel"
@@ -224,6 +224,7 @@
 
                             <div class="tab-pane fade" id="upozilaenglish" role="tabpanel"
                                 aria-labelledby="pills-profile-tab">
+
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label for="upzoneaddress">Zone/Area Address:</label>
@@ -345,6 +346,258 @@
                                             class="btn btn-success">Save</button>
                                     </div>
                                 </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="bangla" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="bnzoneaddress">জোন/অঞ্চল ঠিকানা</label>
+                                        <input type="text" class="form-control" id="bnzoneaddress" name="bnzoneaddress"
+                                            placeholder="জোন ঠিকানা" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bncitycorporation">সিটি কপোরেশন</label>
+                                        <input type="text" class="form-control" id="bncitycorporation"
+                                            name="bncitycorporation" placeholder="সিটি কপোরেশন" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bndistrict">জেলা</label>
+                                        <input type="text" class="form-control" id="bndistrict" name="bndistrict"
+                                            placeholder="জেলা" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnregisterno">নিবন্ধন বহি নম্বর</label>
+                                        <input type="text" class="form-control" id="bnregisterno" name="bnregisterno"
+                                            placeholder="নিবন্ধন বহি নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bndateofissue">সনদ প্রদানের তারিখ</label>
+                                        <input type="text" class="form-control" id="bndateofissue" name="bndateofissue"
+                                            placeholder="সনদ প্রদানের তারিখ" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bndateofregistration">নিবন্ধনের তারিখ</label>
+                                        <input type="text" class="form-control" id="bndateofregistration"
+                                            name="bndateofregistration" placeholder="নিবন্ধনের তারিখ" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnbrnumber">জন্মনিবন্ধন নম্বর</label>
+                                        <input type="text" class="form-control" id="bnbrnumber" name="bnbrnumber"
+                                            placeholder="জন্মনিবন্ধন নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnname">নাম</label>
+                                        <input type="text" class="form-control" id="bnname" name="bnname"
+                                            placeholder="নাম" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="bndateofbirthdate">জন্মতারিখ(দিন)</label>
+                                        <input type="text" class="form-control" id="bndateofbirthdate"
+                                            name="bndateofbirthdate" placeholder="দিন" required>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="bndateofbirthmonth">জন্মতারিখ(মাস)</label>
+                                        <input type="text" class="form-control" id="bndateofbirthmonth"
+                                            name="bndateofbirthmonth" placeholder="মাস" required>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="bndateofbirthyear">জন্মতারিখ(বছর)</label>
+                                        <input type="text" class="form-control" id="bndateofbirthyear"
+                                            name="bndateofbirthyear" placeholder="বছর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bndateofbirthword">জন্মতারিখ(কথায়)</label>
+                                        <input type="text" class="form-control" id="bndateofbirthword"
+                                            name="bndateofbirthword" placeholder="জন্মতারিখ(কথায়)" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnorderchild">সন্তানের ক্রম</label>
+                                        <input type="text" class="form-control" id="bnorderchild" name="bnorderchild"
+                                            placeholder="সন্তানের ক্রম" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bngender">লিঙ্গ</label>
+                                        <select name="bngender" id="bngender" class="form-control">
+                                            <option required>লিঙ্গ</option>
+                                            <option value="পুরুষ">পুরুষ</option>
+                                            <option value="নারী">নারী</option>
+                                            <option value="অন্যান্য">অন্যান্য</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnfathername">পিতার নাম</label>
+                                        <input type="text" class="form-control" id="bnfathername" name="bnfathername"
+                                            placeholder="পিতার নাম" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnfathernid">পিতার জাতীয় পরিচয়পত্র নম্বর</label>
+                                        <input type="text" class="form-control" id="bnfathernid" name="bnfathernid"
+                                            placeholder="পিতার জাতীয় পরিচয়পত্র নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnfatherbrn">পিতার জন্ম নিবন্ধন নম্বর</label>
+                                        <input type="text" class="form-control" id="bnfatherbrn" name="bnfatherbrn"
+                                            placeholder="পিতার জন্ম নিবন্ধন নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnmothername">মাতার নাম</label>
+                                        <input type="text" class="form-control" id="bnmothername" name="bnmothername"
+                                            placeholder="মাতার নাম" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnmothernid">মাতার জাতীয় পরিচয়পত্র নম্বর</label>
+                                        <input type="text" class="form-control" id="bnmothernid" name="bnmothernid"
+                                            placeholder="মাতার জাতীয় পরিচয়পত্র নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnmotherbrn">মাতার জন্ম নিবন্ধন নম্বর</label>
+                                        <input type="text" class="form-control" id="bnmotherbrn" name="bnmotherbrn"
+                                            placeholder="মাতার জন্ম নিবন্ধন নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnbirthplace">জন্মস্থান</label>
+                                        <input type="text" class="form-control" id="bnbirthplace" name="bnbirthplace"
+                                            placeholder="জন্মস্থান" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="bnpermanentaddress">স্থায়ী ঠিকানা</label>
+                                        <input type="text" class="form-control" id="bnpermanentaddress"
+                                            name="bnpermanentaddress" placeholder="স্থায়ী ঠিকানা" required>
+                                    </div>
+
+                                    <div class="col-md-12 text-center mt-2">
+                                        <button type="submit" onclick="citybangla()" class="btn btn-success">সংরক্ষণ
+                                            করুন</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="upozilabangla" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="upbnzoneaddress">জোন/অঞ্চল ঠিকানা</label>
+                                        <input type="text" class="form-control" id="upbnzoneaddress"
+                                            name="upbnzoneaddress" placeholder="জোন ঠিকানা" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbncitycorporation">উপজেলা</label>
+                                        <input type="text" class="form-control" id="upbncitycorporation"
+                                            name="upbncitycorporation" placeholder="উপজেলা" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbndistrict">জেলা</label>
+                                        <input type="text" class="form-control" id="upbndistrict" name="upbndistrict"
+                                            placeholder="জেলা" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnregisterno">নিবন্ধন বহি নম্বর</label>
+                                        <input type="text" class="form-control" id="upbnregisterno"
+                                            name="upbnregisterno" placeholder="নিবন্ধন বহি নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbndateofissue">সনদ প্রদানের তারিখ</label>
+                                        <input type="text" class="form-control" id="upbndateofissue"
+                                            name="upbndateofissue" placeholder="সনদ প্রদানের তারিখ" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbndateofregistration">নিবন্ধনের তারিখ</label>
+                                        <input type="text" class="form-control" id="upbndateofregistration"
+                                            name="upbndateofregistration" placeholder="নিবন্ধনের তারিখ" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnbrnumber">জন্মনিবন্ধন নম্বর</label>
+                                        <input type="text" class="form-control" id="upbnbrnumber" name="upbnbrnumber"
+                                            placeholder="জন্মনিবন্ধন নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnname">নাম</label>
+                                        <input type="text" class="form-control" id="upbnname" name="upbnname"
+                                            placeholder="নাম" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="upbndateofbirthdate">জন্মতারিখ(দিন)</label>
+                                        <input type="text" class="form-control" id="upbndateofbirthdate"
+                                            name="upbndateofbirthdate" placeholder="দিন" required>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="upbndateofbirthmonth">জন্মতারিখ(মাস)</label>
+                                        <input type="text" class="form-control" id="upbndateofbirthmonth"
+                                            name="upbndateofbirthmonth" placeholder="মাস" required>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="upbndateofbirthyear">জন্মতারিখ(বছর)</label>
+                                        <input type="text" class="form-control" id="upbndateofbirthyear"
+                                            name="upbndateofbirthyear" placeholder="বছর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbndateofbirthword">জন্মতারিখ(কথায়)</label>
+                                        <input type="text" class="form-control" id="upbndateofbirthword"
+                                            name="upbndateofbirthword" placeholder="জন্মতারিখ(কথায়)" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnorderchild">সন্তানের ক্রম</label>
+                                        <input type="text" class="form-control" id="upbnorderchild"
+                                            name="upbnorderchild" placeholder="সন্তানের ক্রম" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbngender">লিঙ্গ</label>
+                                        <select name="upbngender" id="upbngender" class="form-control">
+                                            <option required>লিঙ্গ</option>
+                                            <option value="পুরুষ">পুরুষ</option>
+                                            <option value="নারী">নারী</option>
+                                            <option value="অন্যান্য">অন্যান্য</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnfathername">পিতার নাম</label>
+                                        <input type="text" class="form-control" id="upbnfathername"
+                                            name="upbnfathername" placeholder="পিতার নাম" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnfathernid">পিতার জাতীয় পরিচয়পত্র নম্বর</label>
+                                        <input type="text" class="form-control" id="upbnfathernid" name="upbnfathernid"
+                                            placeholder="পিতার জাতীয় পরিচয়পত্র নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnfatherbrn">পিতার জন্ম নিবন্ধন নম্বর</label>
+                                        <input type="text" class="form-control" id="upbnfatherbrn" name="upbnfatherbrn"
+                                            placeholder="পিতার জন্ম নিবন্ধন নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnmothername">মাতার নাম</label>
+                                        <input type="text" class="form-control" id="upbnmothername"
+                                            name="upbnmothername" placeholder="মাতার নাম" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnmothernid">মাতার জাতীয় পরিচয়পত্র নম্বর</label>
+                                        <input type="text" class="form-control" id="upbnmothernid" name="upbnmothernid"
+                                            placeholder="মাতার জাতীয় পরিচয়পত্র নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnmotherbrn">মাতার জন্ম নিবন্ধন নম্বর</label>
+                                        <input type="text" class="form-control" id="upbnmotherbrn" name="upbnmotherbrn"
+                                            placeholder="মাতার জন্ম নিবন্ধন নম্বর" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnbirthplace">জন্মস্থান</label>
+                                        <input type="text" class="form-control" id="upbnbirthplace"
+                                            name="upbnbirthplace" placeholder="জন্মস্থান" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="upbnpermanentaddress">স্থায়ী ঠিকানা</label>
+                                        <input type="text" class="form-control" id="upbnpermanentaddress"
+                                            name="upbnpermanentaddress" placeholder="স্থায়ী ঠিকানা" required>
+                                    </div>
+
+                                    <div class="col-md-12 text-center mt-2">
+                                        <button type="submit" onclick="upozilabangla()" class="btn btn-success">সংরক্ষণ
+                                            করুন</button>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -449,6 +702,82 @@
 
         }
 
+        function citybangla() {
+
+            const bnzoneaddress = document.getElementById("bnzoneaddress").value;
+            const bncitycorporation = document.getElementById("bncitycorporation").value;
+            const bndistrict = document.getElementById("bndistrict").value;
+            const bnregisterno = document.getElementById("bnregisterno").value;
+
+            const bndateofissue = document.getElementById("bndateofissue").value;
+            const bndateofregistration = document.getElementById("bndateofregistration").value;
+            const bnname = document.getElementById("bnname").value;
+            const bnbrnumber = document.getElementById("bnbrnumber").value;
+
+            const bndateofbirthdate = document.getElementById("bndateofbirthdate").value;
+            const bndateofbirthmonth = document.getElementById("bndateofbirthmonth").value;
+            const bndateofbirthyear = document.getElementById("bndateofbirthyear").value;
+            const bndateofbirthword = document.getElementById("bndateofbirthword").value;
+
+            const bnorderchild = document.getElementById("bnorderchild").value;
+            const bngender = document.getElementById("bngender").value;
+            const bnfathername = document.getElementById("bnfathername").value;
+            const bnfathernid = document.getElementById("bnfathernid").value;
+
+            const bnfatherbrn = document.getElementById("bnfatherbrn").value;
+            const bnmothername = document.getElementById("bnmothername").value;
+            const bnmothernid = document.getElementById("bnmothernid").value;
+            const bnmotherbrn = document.getElementById("bnmotherbrn").value;
+
+            const bnbirthplace = document.getElementById("bnbirthplace").value;
+            const bnpermanentaddress = document.getElementById("bnpermanentaddress").value;
+
+            const saveuser = localStorage.getItem('savename');
+
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+                "zoneAddress": bnzoneaddress,
+                "cityCorporation": bncitycorporation,
+                "district": bndistrict,
+                "reg_no": bnregisterno,
+                "dateOfIssue": bndateofissue,
+                "dateOfReg": bndateofregistration,
+                "brNo": bnbrnumber,
+                "fullName": bnname,
+                "dob_date": bndateofbirthdate,
+                "dob_month": bndateofbirthmonth,
+                "dob_year": bndateofbirthyear,
+                "dobInWord": bndateofbirthword,
+                "orderOfChild": bnorderchild,
+                "gender": bngender,
+                "fathersName": bnfathername,
+                "fathersNID": bnfathernid,
+                "fathersBRN": bnfatherbrn,
+                "mothersName": bnmothername,
+                "mothersNID": bnmothernid,
+                "mothersBRN": bnmotherbrn,
+                "birthPlace": bnbirthplace,
+                "permanentAddress": bnpermanentaddress
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("http://localhost:8000/city_corporation/${saveuser}", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+
+
+        }
+
 
         function storeupozila() {
 
@@ -529,6 +858,86 @@
 
 
         }
+
+        function upozilabangla() {
+
+
+            const upbnzoneaddress = document.getElementById("upbnzoneaddress").value;
+            const upbncitycorporation = document.getElementById("upbncitycorporation").value;
+            const upbndistrict = document.getElementById("upbndistrict").value;
+
+
+            const upbnregisterno = document.getElementById("upbnregisterno").value;
+            const upbndateofissue = document.getElementById("upbndateofissue").value;
+            const upbndateofregistration = document.getElementById("upbndateofregistration").value;
+
+            const upbnname = document.getElementById("upbnname").value;
+            const upbnbrnumber = document.getElementById("upbnbrnumber").value;
+            const upbndateofbirthdate = document.getElementById("upbndateofbirthdate").value;
+            const upbndateofbirthmonth = document.getElementById("upbndateofbirthmonth").value;
+            const upbndateofbirthyear = document.getElementById("upbndateofbirthyear").value;
+
+            const upbndateofbirthword = document.getElementById("upbndateofbirthword").value;
+            const upbnorderchild = document.getElementById("upbnorderchild").value;
+            const upbngender = document.getElementById("upbngender").value;
+
+            const upbnfathername = document.getElementById("upbnfathername").value;
+            const upbnfathernid = document.getElementById("upbnfathernid").value;
+            const upbnfatherbrn = document.getElementById("upbnfatherbrn").value;
+
+            const upbnmothername = document.getElementById("upbnmothername").value;
+            const upbnmothernid = document.getElementById("upbnmothernid").value;
+            const upbnmotherbrn = document.getElementById("upbnmotherbrn").value;
+
+            const upbnbirthplace = document.getElementById("upbnbirthplace").value;
+            const upbnpermanentaddress = document.getElementById("upbnpermanentaddress").value;
+
+
+
+            const saveuser = localStorage.getItem('savename');
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+                "zoneOrAddress": upbnzoneaddress,
+                "upozila": upbncitycorporation,
+                "district": upbndistrict,
+                "reg_no": upbnregisterno,
+                "dateOfIssue": upbndateofissue,
+                "dateOfReg": upbndateofregistration,
+                "brNo": upbnbrnumber,
+                "fullName": upbnname,
+                "dob_date": upbndateofbirthdate,
+                "dob_month": upbndateofbirthmonth,
+                "dob_year": upbndateofbirthyear,
+                "dobInWord": upbndateofbirthword,
+                "orderOfChild": upbnorderchild,
+                "gender": upbngender,
+                "fathersName": upbnfathername,
+                "fathersNID": upbnfathernid,
+                "fathersBRN": upbnfatherbrn,
+                "mothersName": upbnmothername,
+                "mothersNID": upbnmothernid,
+                "mothersBRN": upbnmotherbrn,
+                "birthPlace": upbnbirthplace,
+                "permanentAddress": upbnpermanentaddress
+            });
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("http://localhost:8000/upozila/${saveuser}", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+
+
+        }
+
 
 
     </script>
