@@ -193,7 +193,8 @@ font-style:normal; */
 
 
     <script>
-        function CreatePDFfromHTML() {
+        function CreatePDFfromHTML(data) {
+            console.log('inner',data);
             var HTML_Width = $(".html-content").width();
             var HTML_Height = $(".html-content").height();
             var top_left_margin = 0;
@@ -240,28 +241,30 @@ font-style:normal; */
         }
         function show(data) {
             let tab =
-                `<thead><tr>
+                `<thead>
+                <tr>
                 <th>NO</th>
-                                    <th>Name</th>
-                                    <th>BR No</th>
-                                    <th>Gender</th>
-                                    <th>fathersName</th>
-                                    <th>mothersName</th>
-                                    <th>Created Date</th>
-                                    <th>Action</th>
-     </tr> </thead>`;
-            for (let r of data.cityCorporation) {
+                <th>Name</th>
+                <th>BR No</th>
+                <th>Gender</th>
+                <th>fathersName</th>
+                <th>mothersName</th>
+                <th>Created Date</th>
+                <th>Action</th>
+                </tr> 
+                </thead>`;
+            for (let tableData of data.cityCorporation) {
                 tab += `<tbody><tr> 
-                <td>${r.id}</td>
-<td>${r.fullName}</td>
-<td>${r.brNo}</td>
-<td>${r.gender}</td>
-<td>${r.fathersName}</td>
-<td>${r.mothersName}</td> 
-<td>${r.createdAt}</td>  
+                <td>${tableData.id}</td>
+<td>${tableData.fullName}</td>
+<td>${tableData.brNo}</td>
+<td>${tableData.gender}</td>
+<td>${tableData.fathersName}</td>
+<td>${tableData.mothersName}</td> 
+<td>${tableData.createdAt}</td>  
 <td style="width: 30%;">
  <a href="" class="btn btn-secondary">Edit</a>
-<a onclick="CreatePDFfromHTML()" id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
+<a onclick="CreatePDFfromHTML(${tableData.id})" id="downloadpdf" class="btn btn-primary downloadPdf">Download</a>
 </td>
 </tr></tbody>`;
             }
@@ -271,10 +274,12 @@ font-style:normal; */
 
 
         function pdf(data) {
-            let pdfFile = `<div id="viewerContainer" class="" tabindex="0">`
+            console.log('new', data);
+            let pdfFile = ``
             for (let pdfData of data) {
                 pdfFile += `
-        <div id="viewer" class="pdfViewer">
+                <div id="viewerContainer" class="" tabindex="0">
+                    <div id="viewer" class="pdfViewer">
             <div class="textLayer html-content" style="width: 1019px; height: 1319px;">
                 <span style="left: 367px; top: 76.9121px; font-size: 20px; font-weight: 500; line-height: 13px;"
                     role="presentation" dir="ltr">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span>
