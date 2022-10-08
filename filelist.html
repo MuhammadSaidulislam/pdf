@@ -101,33 +101,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        //         fetch('http://localhost:8000/all-info')           
-        //   .then(response => response.json())
-        //   .then(data => console.log(data.cityCorporation));
-        const api_url =
-            "http://localhost:8000/all-info";
+        const saveuser = localStorage.getItem('savename');
+        const api_url = "http://localhost:8000/all-info/${saveuser}";
 
-        // Defining async function
         async function getapi(url) {
-
-            // Storing response
             const response = await fetch(url);
-
-            // Storing data in form of JSON
             var data = await response.json();
-            console.log(data.cityCorporation);
-            // if (response) {
-            //     hideloader();
-            // }
+            console.log(data);
             show(data);
         }
-        // Calling that async function
         getapi(api_url);
-
-        // Function to hide the loader
-        function hideloader() {
-            document.getElementById('loading').style.display = 'none';
-        }
+        // function hideloader() {
+        //     document.getElementById('loading').style.display = 'none';
+        // }
         // Function to define innerHTML for HTML table
         function show(data) {
             let tab =
@@ -161,7 +147,8 @@
             // Setting innerHTML as tab variable
             document.getElementById("employees").innerHTML = tab;
         }
-    </script>
+   
+   </script>
 
 
 
