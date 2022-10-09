@@ -103,12 +103,12 @@ font-style:normal; */
 
                 <ul class="sidebar-menu">
                     <li class="dropdown">
-                        <a href="./index.html"
-                            class="nav-link"><i class="fas fa-chart-pie"></i><span>Create File Submission</span></a>
+                        <a href="./index.html" class="nav-link"><i class="fas fa-chart-pie"></i><span>Create File
+                                Submission</span></a>
                     </li>
                     <li class="dropdown">
-                        <a href="./filelist.html"
-                            class="nav-link"><i class="fas fa-list"></i><span>File Submission List</span></a>
+                        <a href="./filelist.html" class="nav-link"><i class="fas fa-list"></i><span>File Submission
+                                List</span></a>
                     </li>
 
                     <br>
@@ -147,7 +147,8 @@ font-style:normal; */
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="citycorporation" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div class="tab-pane fade show active" id="citycorporation" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
                                 <div class="table-responsive">
                                     <table class="table table-hover" id="citycorporationdata"></table>
                                 </div>
@@ -158,7 +159,7 @@ font-style:normal; */
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -173,50 +174,58 @@ font-style:normal; */
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
     <script src="./js/main.js"></script>
 
     <!-- pdf genrate -->
-<script>
-    function CreatePDFfromHTML() {
-       
-        var HTML_Width = $(".html-content").width();
-        var HTML_Height = $(".html-content").height();
-        var top_left_margin = 0;
-        var PDF_Width = HTML_Width;
-        var PDF_Height = (HTML_Height);
-        var canvas_image_width = HTML_Width;
-        var canvas_image_height = HTML_Height;
+    <script>
+        function CreatePDFfromHTML() {
 
-        var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+            var HTML_Width = $(".html-content").width();
+            var HTML_Height = $(".html-content").height();
+            var top_left_margin = 0;
+            var PDF_Width = HTML_Width;
+            var PDF_Height = (HTML_Height);
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
 
-        html2canvas($(".html-content")[0]).then(function (canvas) {
-            var imgData = canvas.toDataURL("image/jpeg", 1.0);
-            var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
-            pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
-            for (var i = 1; i <= totalPDFPages; i++) {
-                pdf.addPage(PDF_Width, PDF_Height);
-                pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin), canvas_image_width, canvas_image_height);
-            }
-            pdf.save("bangla.pdf");
-            // $(".html-content").hide();
-        });
-    }
-</script>
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
-   
+            html2canvas($(".html-content")[0]).then(function (canvas) {
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+                for (var i = 1; i <= totalPDFPages; i++) {
+                    pdf.addPage(PDF_Width, PDF_Height);
+                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin), canvas_image_width, canvas_image_height);
+                }
+                pdf.save("bangla.pdf");
+                // $(".html-content").hide();
+            });
+        }
+    </script>
+
+
 
 
     <script>
+
+        var formatDate = 1399919400000;
+        var responseDate = moment(formatDate).format('DD/MM/YYYY');
+        // console.log(responseDate);
+
+
         const saveuser = localStorage.getItem('savename');
         const api_url = "http://localhost:8000/all-info/${saveuser}";
 
         async function getapi(url) {
             const response = await fetch(url);
             var data = await response.json();
-   
+
             city(data);
             upozila(data);
-            pdf(data)
+
         }
         getapi(api_url);
         // function hideloader() {
@@ -239,20 +248,21 @@ font-style:normal; */
                 </thead>`;
 
             // Loop to access all rows 
-            for (let citydata of data.cityCorporation) {
-                console.log("citycorporation",citydata);
+            for (let i = 0; i < data.cityCorporation.length; i++) {
+
+                //  if(data.cityCorporation[i].id === )
                 tab += `<tbody>
                     <tr> 
-                    <td>${citydata.id}</td>
-                    <td>${citydata.fullName}</td>
-                    <td>${citydata.brNo}</td>
-                    <td>${citydata.gender}</td>
-                    <td>${citydata.fathersName}</td>
-                    <td>${citydata.mothersName}</td> 
-                    <td>${citydata.createdAt}</td>  
+                    <td>${data.cityCorporation[i].id}</td>
+                    <td>${data.cityCorporation[i].fullName}</td>
+                    <td>${data.cityCorporation[i].brNo}</td>
+                    <td>${data.cityCorporation[i].gender}</td>
+                    <td>${data.cityCorporation[i].fathersName}</td>
+                    <td>${data.cityCorporation[i].mothersName}</td> 
+                    <td>${data.cityCorporation[i].createdAt}</td>  
                     <td style="width: 30%;">
                     <a href="" class="btn btn-secondary">Edit</a>
-                    <a id="downloadpdf" onclick="pdfcreate(${citydata.id})" class="btn btn-primary downloadPdf">Download</a>
+                    <a id="downloadpdf" onclick="pdfcreate(${data.cityCorporation[i].id})" class="btn btn-primary downloadPdf">Download</a>
                     </td>
                     </tr>
                     </tbody>`;
@@ -289,226 +299,459 @@ font-style:normal; */
                     <td>${upoziladata.createdAt}</td>  
                     <td style="width: 30%;">
                     <a href="" class="btn btn-secondary">Edit</a>
-                    <a id="downloadpdf" onclick="pdfcreate()" class="btn btn-primary downloadPdf">Download</a>
+                    <a id="downloadpdf" onclick="pdfcreate(${upoziladata.id})" class="btn btn-primary downloadPdf">Download</a>
                     </td>
                     </tr>
                     </tbody>`;
             }
-            // Setting innerHTML as tab variable
             document.getElementById("upoziladata").innerHTML = tab;
         }
 
-        function pdf(data) {
-           
-            let pdfFile = ``
-            for (let pdfData of data.upozila) {
-                pdfFile += `
-                <div id="viewerContainer" class="" tabindex="0">
-                    <div id="viewer" class="pdfViewer">
-            <div class="textLayer html-content" style="width: 1019px; height: 1319px;">
-                <span style="left: 367px; top: 76.9121px; font-size: 20px; font-weight: 500; line-height: 13px;"
-                    role="presentation" dir="ltr">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span>
-
-                <br role="presentation">
-
-                <span style="left: 401px; top: 101.104px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr">জন্ম ও মৃত্যু নিবন্ধকের কাযালয়</span>
-
-                <br role="presentation">
-
-                <span style="left: 375px; top: 121.504px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnzoneaddress_show"></span>
-                <br role="presentation"><span style="left: 352px; top: 163.104px; font-size: 15px; font-weight: 500;"
-                    role="presentation" dir="ltr">সিটি কপোরেশন:</span>
-                <span style="left: 475.2px; top: 163.104px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bncitycorporation_show"></span>
-                <br role="presentation">
-                <span style="left: 427.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr">জেলা:</span>
-                <span style="left: 475.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bndistrict_show"></span>
-
-
-                <br role="presentation">
-
-                <span style="left: 425.8px; top: 216.079px; font-size: 20.8333px; font-weight: 500;" role="presentation"
-                    dir="ltr">জন্ম নিবন্ধন সনদ</span>
-                <br role="presentation">
-                <span style="left: 445.2px; top: 241.305px; font-size: 13.4167px; font-weight: 500;" role="presentation"
-                    dir="ltr">[ বিধি ৯ ও ১০ দ্রষ্টব্য ]</span>
-                <br role="presentation">
-                <span style="left: 419.4px; top: 259.105px; font-size: 13.4167px; font-weight: 500;" role="presentation"
-                    dir="ltr">(জন্ম নিবন্ধন বহি হতে উদৃধৃত)</span>
-                <br role="presentation"><span style="left: 68.2px; top: 277.302px; font-size: 15px; font-weight: 500;"
-                    role="presentation" dir="ltr">নিবন্ধন বহি নম্বরঃ</span>
-                <span style="left: 240px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnregisterno_show"></span>
-
-                <span style="left: 689px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr">সনদ প্রদানের তারিখ:</span>
-                <span style="left: 836.8px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bndateofissue_show"></span>
-                <br role="presentation">
-                <span style="left: 68.2px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr">নিবন্ধনের তারিখ:</span>
-                <span style="left: 240px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bndateofregistration_show"></span>
-
-                <br role="presentation">
-
-                <span style="left: 67.4px; top: 367.503px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr">জন্মনিবন্ধন নম্বরঃ</span>
-                <br role="presentation">
-                <span style="left: 73.8px; top: 419.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">নামঃ</span><span
-                    style="left: 132.742px; top: 425.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr"> </span>
-                <span style="left: 244.598px; top: 419.903px; font-size: 16.5833px; font-weight: 500;"
-                    role="presentation" dir="ltr" id="bnname_show"></span>
-                <br role="presentation">
-
-                <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">জন্মতারিখঃ</span>
-
-                <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bndateofbirth_show"></span>
-                <br role="presentation">
-                <span style="left: 73px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">কথায়ঃ</span>
-
-
-                <!-- in word birthday -->
-
-                <span style="left: 235.2px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bndateofbirthword_show">
-                </span>
-
-                <span style="left: 705.8px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">সন্তানের ক্রমঃ</span>
-
-                <!-- order od child -->
-                <span style="left: 818.198px; top: 508.503px; font-size: 16.5833px; font-weight: 500;"
-                    role="presentation" dir="ltr" id="bnorderchild_show"></span><br role="presentation">
-                <span style="left: 69.2px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">জন্মস্থানঃ</span>
-
-                <!-- place of birth -->
-                <span style="left: 230.4px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnbirthplace_show"></span>
-                <br role="presentation">
-                <span style="left: 69.2px; top: 597.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">স্থায়ী ঠিকানাঃ</span>
-                <span style="left: 269.644px; top: 608.112px; font-size: 18.4167px; font-weight: 500;"
-                    role="presentation" dir="ltr"> </span>
-                <!-- permanent address -->
-                <span style="left: 232.598px; top: 597.303px; font-size: 16.5833px; font-weight: 500;"
-                    role="presentation" dir="ltr" id="bnpermanentaddress_show">
-                </span>
-
-
-                <br role="presentation">
-                <span style="left: 108.4px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">পিতার নামঃ</span>
-                <span style="left: 378.8px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnfathername_show"></span>
-                <br role="presentation">
-                <span style="left: 108.4px; top: 688.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">পিতার জন্ম নিবন্ধন নম্বরঃ</span>
-                <span style="left: 378.8px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnfathernid_show"></span>
-                <span style="left: 683px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">পিতার জাতীয়তা: বাংলাদেশী</span>
-                <br role="presentation"><span
-                    style="left: 108.4px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">পিতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
-                <span style="left: 378.8px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnfatherbrn_show"></span>
-                <br role="presentation">
-                <span style="left: 108.4px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">মাতার নামঃ</span>
-
-                <!-- mother name -->
-                <span style="left: 378.8px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnmothername_show"></span>
-
-                <br role="presentation">
-                <span style="left: 108.4px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">মাতার জন্ম নিবন্ধন নম্বরঃ</span>
-                <span style="left: 378.8px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnmothernid_show"></span>
-                <span style="left: 683px; top: 800.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">মাতার জাতীয়তা: বাংলাদেশী</span>
-
-                <br role="presentation">
-                <span style="left: 108.4px; top: 826.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr">মাতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
-                <span style="left: 378.8px; top: 826.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bnmotherbrn_show"></span>
-                <br role="presentation">
-                <span style="left: 720px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
-                    dir="ltr">(নিবন্ধকের স্বাক্ষর ও নামসহ সিল)</span>
-                <br role="presentation">
-                <span style="left: 305.4px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
-                    dir="ltr">প্রস্তুতকারীর স্বাক্ষর</span>
-
-                <span style="left: 474.4px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
-                    dir="ltr">যাচাইকারীর নাম, স্বাক্ষর ও সিল</span>
-                <br role="presentation">
-                <span style="left: 83px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
-                    dir="ltr">নিবন্ধকের কার্যালয়ের সিলমোহর</span>
-                <br role="presentation">
-                <!-- br number -->
-                <span
-                    style="left: 247.8px; top: 361.519px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.6rem;"
-                    role="presentation" dir="ltr" id="bnbrnumber_show"></span>
-
-
-                <br role="presentation">
-                <!-- birth date -->
-                <span
-                    style="left: 245px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
-                    role="presentation" dir="ltr" id="bndateofbirthdate_show"></span>
-
-                <!-- month -->
-                <span
-                    style="left: 317.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
-                    role="presentation" dir="ltr" id="bndateofbirthmonth_show"></span>
-
-                <!-- year -->
-                <span
-                    style="left: 390.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
-                    role="presentation" dir="ltr" id="bndateofbirthyear_show"></span>
-
-                <br role="presentation">
-                <span style="left: 815px; top: 86.1121px; font-size: 18.4167px; font-weight: 500;" role="presentation"
-                    dir="ltr">জমনি ফরম-৩</span>
-                <br role="presentation">
-                <span style="left: 707.2px; top: 435.704px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr">লিঙ্গঃ</span>
-
-                <span style="left: 749px; top: 434.503px; font-size: 15px; font-weight: 500;" role="presentation"
-                    dir="ltr" id="bngender_show"></span>
-                <div class="endOfContent"></div>
-            </div>
-            <!-- </div> -->
-        </div>
-    </div>`
-                document.getElementById("pdfShow").innerHTML = pdfFile;
-            }
-        }
-   
     </script>
 
 
-<script>
-    function pdfcreate(data){
-        console.log(data);
-        CreatePDFfromHTML();
-    }
-</script>
+    <script>
+        function pdfcreate(maindata) {
+
+            const saveuser = localStorage.getItem('savename');
+            const api_url = "http://localhost:8000/all-info/${saveuser}";
+            async function getapi(url) {
+                const response = await fetch(url);
+                var data = await response.json();
+
+                // console.log('firstdata', data.cityCorporation);
+                for (let i = 0; i < data.cityCorporation.length; i++) {
+                    if (data.cityCorporation[i].id === maindata) {
+                        console.log(data.cityCorporation[i]);
+                        const pdfData = data.cityCorporation[i];
+                        console.log('hello', pdfData);
+                        // pdfArray.push(data.cityCorporation[i])
+                        // let pdfArray = {}
+                        // if (!Object.keys(pdfArray).length) {
+                        //     Object.assign(pdfArray, data.cityCorporation[i]);
+                        // }
+                        // console.log('array', pdfArray);
+                        // pdf(pdfArray)
 
 
-<!-- -->
+
+                        console.log('hello2');
+                        console.log('innerarray', pdfData);
+                        pdfFile = `
+               <div id="viewerContainer" class="" tabindex="0">
+                   <div id="viewer" class="pdfViewer">
+           <div class="textLayer html-content" style="width: 1019px; height: 1319px;">
+               <span style="left: 367px; top: 76.9121px; font-size: 20px; font-weight: 500; line-height: 13px;"
+                   role="presentation" dir="ltr">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার ${pdfData.id}</span>
+
+               <br role="presentation">
+
+               <span style="left: 401px; top: 101.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্ম ও মৃত্যু নিবন্ধকের কাযালয়</span>
+
+               <br role="presentation">
+
+               <span style="left: 375px; top: 121.504px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnzoneaddress_show"></span>
+               <br role="presentation"><span style="left: 352px; top: 163.104px; font-size: 15px; font-weight: 500;"
+                   role="presentation" dir="ltr">সিটি কপোরেশন:</span>
+               <span style="left: 475.2px; top: 163.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bncitycorporation_show"></span>
+               <br role="presentation">
+               <span style="left: 427.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">জেলা:</span>
+               <span style="left: 475.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndistrict_show"></span>
+
+
+               <br role="presentation">
+
+               <span style="left: 425.8px; top: 216.079px; font-size: 20.8333px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্ম নিবন্ধন সনদ</span>
+               <br role="presentation">
+               <span style="left: 445.2px; top: 241.305px; font-size: 13.4167px; font-weight: 500;" role="presentation"
+                   dir="ltr">[ বিধি ৯ ও ১০ দ্রষ্টব্য ]</span>
+               <br role="presentation">
+               <span style="left: 419.4px; top: 259.105px; font-size: 13.4167px; font-weight: 500;" role="presentation"
+                   dir="ltr">(জন্ম নিবন্ধন বহি হতে উদৃধৃত)</span>
+               <br role="presentation"><span style="left: 68.2px; top: 277.302px; font-size: 15px; font-weight: 500;"
+                   role="presentation" dir="ltr">নিবন্ধন বহি নম্বরঃ</span>
+               <span style="left: 240px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnregisterno_show"></span>
+
+               <span style="left: 689px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">সনদ প্রদানের তারিখ:</span>
+               <span style="left: 836.8px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofissue_show"></span>
+               <br role="presentation">
+               <span style="left: 68.2px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">নিবন্ধনের তারিখ:</span>
+               <span style="left: 240px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofregistration_show"></span>
+
+               <br role="presentation">
+
+               <span style="left: 67.4px; top: 367.503px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্মনিবন্ধন নম্বরঃ</span>
+               <br role="presentation">
+               <span style="left: 73.8px; top: 419.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">নামঃ</span><span
+                   style="left: 132.742px; top: 425.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr"> </span>
+               <span style="left: 244.598px; top: 419.903px; font-size: 16.5833px; font-weight: 500;"
+                   role="presentation" dir="ltr" id="bnname_show"></span>
+               <br role="presentation">
+
+               <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্মতারিখঃ</span>
+
+               <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofbirth_show"></span>
+               <br role="presentation">
+               <span style="left: 73px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">কথায়ঃ</span>
+
+
+               <!-- in word birthday -->
+
+               <span style="left: 235.2px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofbirthword_show">
+               </span>
+
+               <span style="left: 705.8px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">সন্তানের ক্রমঃ</span>
+
+               <!-- order od child -->
+               <span style="left: 818.198px; top: 508.503px; font-size: 16.5833px; font-weight: 500;"
+                   role="presentation" dir="ltr" id="bnorderchild_show"></span><br role="presentation">
+               <span style="left: 69.2px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্মস্থানঃ</span>
+
+               <!-- place of birth -->
+               <span style="left: 230.4px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnbirthplace_show"></span>
+               <br role="presentation">
+               <span style="left: 69.2px; top: 597.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">স্থায়ী ঠিকানাঃ</span>
+               <span style="left: 269.644px; top: 608.112px; font-size: 18.4167px; font-weight: 500;"
+                   role="presentation" dir="ltr"> </span>
+               <!-- permanent address -->
+               <span style="left: 232.598px; top: 597.303px; font-size: 16.5833px; font-weight: 500;"
+                   role="presentation" dir="ltr" id="bnpermanentaddress_show">
+               </span>
+
+
+               <br role="presentation">
+               <span style="left: 108.4px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার নামঃ</span>
+               <span style="left: 378.8px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnfathername_show"></span>
+               <br role="presentation">
+               <span style="left: 108.4px; top: 688.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার জন্ম নিবন্ধন নম্বরঃ</span>
+               <span style="left: 378.8px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnfathernid_show"></span>
+               <span style="left: 683px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার জাতীয়তা: বাংলাদেশী</span>
+               <br role="presentation"><span
+                   style="left: 108.4px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
+               <span style="left: 378.8px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnfatherbrn_show"></span>
+               <br role="presentation">
+               <span style="left: 108.4px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার নামঃ</span>
+
+               <!-- mother name -->
+               <span style="left: 378.8px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnmothername_show"></span>
+
+               <br role="presentation">
+               <span style="left: 108.4px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার জন্ম নিবন্ধন নম্বরঃ</span>
+               <span style="left: 378.8px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnmothernid_show"></span>
+               <span style="left: 683px; top: 800.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার জাতীয়তা: বাংলাদেশী</span>
+
+               <br role="presentation">
+               <span style="left: 108.4px; top: 826.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
+               <span style="left: 378.8px; top: 826.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnmotherbrn_show"></span>
+               <br role="presentation">
+               <span style="left: 720px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">(নিবন্ধকের স্বাক্ষর ও নামসহ সিল)</span>
+               <br role="presentation">
+               <span style="left: 305.4px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">প্রস্তুতকারীর স্বাক্ষর</span>
+
+               <span style="left: 474.4px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">যাচাইকারীর নাম, স্বাক্ষর ও সিল</span>
+               <br role="presentation">
+               <span style="left: 83px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">নিবন্ধকের কার্যালয়ের সিলমোহর</span>
+               <br role="presentation">
+               <!-- br number -->
+               <span
+                   style="left: 247.8px; top: 361.519px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.6rem;"
+                   role="presentation" dir="ltr" id="bnbrnumber_show"></span>
+
+
+               <br role="presentation">
+               <!-- birth date -->
+               <span
+                   style="left: 245px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                   role="presentation" dir="ltr" id="bndateofbirthdate_show"></span>
+
+               <!-- month -->
+               <span
+                   style="left: 317.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                   role="presentation" dir="ltr" id="bndateofbirthmonth_show"></span>
+
+               <!-- year -->
+               <span
+                   style="left: 390.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                   role="presentation" dir="ltr" id="bndateofbirthyear_show"></span>
+
+               <br role="presentation">
+               <span style="left: 815px; top: 86.1121px; font-size: 18.4167px; font-weight: 500;" role="presentation"
+                   dir="ltr">জমনি ফরম-৩</span>
+               <br role="presentation">
+               <span style="left: 707.2px; top: 435.704px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">লিঙ্গঃ</span>
+
+               <span style="left: 749px; top: 434.503px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bngender_show"></span>
+               <div class="endOfContent"></div>
+           </div>
+           <!-- </div> -->
+       </div>
+   </div>`
+                        document.getElementById("pdfShow").innerHTML = pdfFile;
+
+
+
+
+
+                    }
+                    // else{
+                    //     console.log('fail');
+                    // }
+                }
+            }
+            getapi(api_url);
+
+
+            console.log('new data', maindata);
+            CreatePDFfromHTML();
+
+        }
+    </script>
+
+    <script>
+
+        function pdf(pdfArray) {
+            console.log('innerarray', pdfArray);
+            pdfFile = `
+               <div id="viewerContainer" class="" tabindex="0">
+                   <div id="viewer" class="pdfViewer">
+           <div class="textLayer html-content" style="width: 1019px; height: 1319px;">
+               <span style="left: 367px; top: 76.9121px; font-size: 20px; font-weight: 500; line-height: 13px;"
+                   role="presentation" dir="ltr">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার ${pdfArray.id}</span>
+
+               <br role="presentation">
+
+               <span style="left: 401px; top: 101.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্ম ও মৃত্যু নিবন্ধকের কাযালয়</span>
+
+               <br role="presentation">
+
+               <span style="left: 375px; top: 121.504px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnzoneaddress_show"></span>
+               <br role="presentation"><span style="left: 352px; top: 163.104px; font-size: 15px; font-weight: 500;"
+                   role="presentation" dir="ltr">সিটি কপোরেশন:</span>
+               <span style="left: 475.2px; top: 163.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bncitycorporation_show"></span>
+               <br role="presentation">
+               <span style="left: 427.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">জেলা:</span>
+               <span style="left: 475.4px; top: 183.104px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndistrict_show"></span>
+
+
+               <br role="presentation">
+
+               <span style="left: 425.8px; top: 216.079px; font-size: 20.8333px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্ম নিবন্ধন সনদ</span>
+               <br role="presentation">
+               <span style="left: 445.2px; top: 241.305px; font-size: 13.4167px; font-weight: 500;" role="presentation"
+                   dir="ltr">[ বিধি ৯ ও ১০ দ্রষ্টব্য ]</span>
+               <br role="presentation">
+               <span style="left: 419.4px; top: 259.105px; font-size: 13.4167px; font-weight: 500;" role="presentation"
+                   dir="ltr">(জন্ম নিবন্ধন বহি হতে উদৃধৃত)</span>
+               <br role="presentation"><span style="left: 68.2px; top: 277.302px; font-size: 15px; font-weight: 500;"
+                   role="presentation" dir="ltr">নিবন্ধন বহি নম্বরঃ</span>
+               <span style="left: 240px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnregisterno_show"></span>
+
+               <span style="left: 689px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">সনদ প্রদানের তারিখ:</span>
+               <span style="left: 836.8px; top: 277.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofissue_show"></span>
+               <br role="presentation">
+               <span style="left: 68.2px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">নিবন্ধনের তারিখ:</span>
+               <span style="left: 240px; top: 317.302px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofregistration_show"></span>
+
+               <br role="presentation">
+
+               <span style="left: 67.4px; top: 367.503px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্মনিবন্ধন নম্বরঃ</span>
+               <br role="presentation">
+               <span style="left: 73.8px; top: 419.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">নামঃ</span><span
+                   style="left: 132.742px; top: 425.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr"> </span>
+               <span style="left: 244.598px; top: 419.903px; font-size: 16.5833px; font-weight: 500;"
+                   role="presentation" dir="ltr" id="bnname_show"></span>
+               <br role="presentation">
+
+               <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্মতারিখঃ</span>
+
+               <span style="left: 70px; top: 464.101px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofbirth_show"></span>
+               <br role="presentation">
+               <span style="left: 73px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">কথায়ঃ</span>
+
+
+               <!-- in word birthday -->
+
+               <span style="left: 235.2px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bndateofbirthword_show">
+               </span>
+
+               <span style="left: 705.8px; top: 508.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">সন্তানের ক্রমঃ</span>
+
+               <!-- order od child -->
+               <span style="left: 818.198px; top: 508.503px; font-size: 16.5833px; font-weight: 500;"
+                   role="presentation" dir="ltr" id="bnorderchild_show"></span><br role="presentation">
+               <span style="left: 69.2px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">জন্মস্থানঃ</span>
+
+               <!-- place of birth -->
+               <span style="left: 230.4px; top: 552.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnbirthplace_show"></span>
+               <br role="presentation">
+               <span style="left: 69.2px; top: 597.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">স্থায়ী ঠিকানাঃ</span>
+               <span style="left: 269.644px; top: 608.112px; font-size: 18.4167px; font-weight: 500;"
+                   role="presentation" dir="ltr"> </span>
+               <!-- permanent address -->
+               <span style="left: 232.598px; top: 597.303px; font-size: 16.5833px; font-weight: 500;"
+                   role="presentation" dir="ltr" id="bnpermanentaddress_show">
+               </span>
+
+
+               <br role="presentation">
+               <span style="left: 108.4px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার নামঃ</span>
+               <span style="left: 378.8px; top: 660.903px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnfathername_show"></span>
+               <br role="presentation">
+               <span style="left: 108.4px; top: 688.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার জন্ম নিবন্ধন নম্বরঃ</span>
+               <span style="left: 378.8px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnfathernid_show"></span>
+               <span style="left: 683px; top: 687.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার জাতীয়তা: বাংলাদেশী</span>
+               <br role="presentation"><span
+                   style="left: 108.4px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">পিতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
+               <span style="left: 378.8px; top: 715.703px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnfatherbrn_show"></span>
+               <br role="presentation">
+               <span style="left: 108.4px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার নামঃ</span>
+
+               <!-- mother name -->
+               <span style="left: 378.8px; top: 775.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnmothername_show"></span>
+
+               <br role="presentation">
+               <span style="left: 108.4px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার জন্ম নিবন্ধন নম্বরঃ</span>
+               <span style="left: 378.8px; top: 801.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnmothernid_show"></span>
+               <span style="left: 683px; top: 800.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার জাতীয়তা: বাংলাদেশী</span>
+
+               <br role="presentation">
+               <span style="left: 108.4px; top: 826.503px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr">মাতার জাতীয় পরিচয়পত্র নম্বরঃ</span>
+               <span style="left: 378.8px; top: 826.303px; font-size: 16.5833px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bnmotherbrn_show"></span>
+               <br role="presentation">
+               <span style="left: 720px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">(নিবন্ধকের স্বাক্ষর ও নামসহ সিল)</span>
+               <br role="presentation">
+               <span style="left: 305.4px; top: 1120.9px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">প্রস্তুতকারীর স্বাক্ষর</span>
+
+               <span style="left: 474.4px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">যাচাইকারীর নাম, স্বাক্ষর ও সিল</span>
+               <br role="presentation">
+               <span style="left: 83px; top: 1184.1px; font-size: 14px; font-weight: 500;" role="presentation"
+                   dir="ltr">নিবন্ধকের কার্যালয়ের সিলমোহর</span>
+               <br role="presentation">
+               <!-- br number -->
+               <span
+                   style="left: 247.8px; top: 361.519px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.6rem;"
+                   role="presentation" dir="ltr" id="bnbrnumber_show"></span>
+
+
+               <br role="presentation">
+               <!-- birth date -->
+               <span
+                   style="left: 245px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                   role="presentation" dir="ltr" id="bndateofbirthdate_show"></span>
+
+               <!-- month -->
+               <span
+                   style="left: 317.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                   role="presentation" dir="ltr" id="bndateofbirthmonth_show"></span>
+
+               <!-- year -->
+               <span
+                   style="left: 390.8px; top: 466.101px; font-size: 16.5833px; font-weight: 500; letter-spacing: 1.1rem;"
+                   role="presentation" dir="ltr" id="bndateofbirthyear_show"></span>
+
+               <br role="presentation">
+               <span style="left: 815px; top: 86.1121px; font-size: 18.4167px; font-weight: 500;" role="presentation"
+                   dir="ltr">জমনি ফরম-৩</span>
+               <br role="presentation">
+               <span style="left: 707.2px; top: 435.704px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr">লিঙ্গঃ</span>
+
+               <span style="left: 749px; top: 434.503px; font-size: 15px; font-weight: 500;" role="presentation"
+                   dir="ltr" id="bngender_show"></span>
+               <div class="endOfContent"></div>
+           </div>
+           <!-- </div> -->
+       </div>
+   </div>`
+            document.getElementById("pdfShow").innerHTML = pdfFile;
+
+        }
+
+    </script>
+
+
+    <!-- -->
 
 </body>
 
